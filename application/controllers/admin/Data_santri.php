@@ -21,4 +21,14 @@ class Data_santri extends CI_Controller {
         //load view
         $this->load->view('admin/data_santri', $data);
     }
+    public function hapus($id)
+    {
+    
+        $this->load->model('m_tables');
+    
+        $where = array('id_calon' => $id);
+        $this->m_tables->hapus_data($where,'calon_siswa');
+    
+        redirect('admin/data_santri');
+    }
 }

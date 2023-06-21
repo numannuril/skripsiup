@@ -37,9 +37,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url('admin/dashboard') ?>">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <i class="fas fa-fa fa-address-card"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">PSB ONLINE </div>
+                <div class="sidebar-brand-text mx-3">PSB ONLINE</div>
             </a>
 
             <!-- Divider -->
@@ -47,7 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href=""<?php echo base_url('admin/dashboard') ?>"">
+                <a class="nav-link" href="<?php echo base_url('admin/dashboard') ?> ">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -56,14 +56,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
-            </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="<?php echo base_url('admin/data_santri') ?>" >
                     <i class="fas fa-book"></i>
                     <span>Data Santri</span>
                 </a>
@@ -72,53 +68,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-file"></i>
-                    <span>Upload Berkas</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+                    <a class="nav-link" href="<?php echo base_url('admin/data_admin') ?>">
+                        <i class="fas fa-fw fa-book"></i>
+                        <span>Data Admin</span></a>
+                </li>
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
+                <a class="nav-link collapsed" href="#">
                     <i class="fas fa-folder"></i>
                     <span>Pembayaran</span>
                 </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
+
             </li>
 
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('admin/data_santri') ?>">
+                <a class="nav-link" href="<?php echo base_url('admin/data_website') ?>">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                    <span>Website</span></a>
             </li>
 
             <!-- Divider -->
@@ -147,7 +116,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </button>
 
                     <!-- Topbar Search -->
-                    <form
+                    <!-- <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
@@ -158,7 +127,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form> -->
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -197,17 +166,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $this->session->userdata('id_calon'); ?></span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $this->session->userdata('id_admin'); ?></span>
                                 <img class="img-profile rounded-circle"
                                     src="<?php echo base_url() ?>assets/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
-                                </a>
+                                </a> -->
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="<?php echo base_url('login/logout'); ?>" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -223,201 +192,75 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                   
+                <h1 class="h3 mb-2 text-gray-800">Dashboard</h1>
 
                     <!-- Content Row -->
-                    <div class="row">
-                    <!-- <form id="form" method="post">
-        
-        <div class="alert alert-primary">
-            <strong>Data Diri</strong>
-        </div>
-            
-        
-        <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Nama Lengkap:</label>
-                        <input type="text" name="nama" class="form-control" placeholder="Masukan Nama Lengkap" value="">
-                </div>
-        <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Nomor Identitas (NISN):</label>
-                        <input type="text" name="nisn" class="form-control" placeholder="Masukan Nomor NISN" value="">
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Jenis Kelamin:</label>
-                    <input type="text" name="jenis_kelamin" class="form-control" placeholder="Masukan No Hp" value="">
-                </div>
-            </div>
-        </div>
-                </div>
-            </div>
-
-        <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Tempat Lahir:</label>
-                        <input type="text" name="tempat_lahir" class="form-control" placeholder="Masukan Tempat Lahir" value="">
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Tanggal Lahir:</label>
-                        <input type="date" name="tanggal_lahir" class="form-control" value="">
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>No Hp:</label>
-                        <input type="text" name="no_hp" class="form-control" placeholder="Masukan No Hp" value="">    
-                   </div>
-                </div>
-                <div class="col-sm">
-                <div class="form-group">
-                    <label>Upload Foto</label>
-                        <input type="file" name="foto" class="form-control" placeholder="Upload Foto">    
-                   </div>
-                </div>
-            </div>
-
-        <div class="alert alert-primary">
-                <strong>Data Alamat Asal</strong>
-        </div>
-            <div class="row">
-                <div class="col-sm">
-                    <div class="form-group">
-                    <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Desa:</label>
-                        <input type="text" name="desa" class="form-control" placeholder="Masukan Nama Desa">
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Kecamatan:</label>
-                        <input type="text" name="Kecamatan" class="form-control" placeholder="Masukan Nama Kecamatan">    
-                   </div>
-                </div>
-            </div>
-            <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Kabupaten:</label>
-                        <input type="text" name="kabupaten" class="form-control" placeholder="Masukan Nama Kabupaten">
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Provinsi:</label>
-                        <input type="text" name="email" class="form-control" placeholder="Masukan Nama Provinsi">    
-                   </div>
-                </div>
-            </div>                     
-    <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Alamat:</label>
-                        <textarea class="form-control" name="alamat" rows="2" id="alamat"></textarea>
-                </div>
-            </div>
-            
-    </div>
-
-        <div class="alert alert-primary">
-            <strong>Data Pendidikan</strong>
-        </div>
-        
-        <div class="col-sm">
-            <div class="form-group">
-                <label>Ukuran_Seragam:</label>
-                    <select class="form-control" name="agama">
-                        <option>Pilih</option>
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">Xl</option>
-                        <option value="XXL">XXL</option>
-                        <option value="Lainnya">Lainnya</option>
-                    </select>
-            </div>
-        </div>
-        <div class="col-sm">
-                <div class="form-group">
-                    <label>Asal Sekolah:</label>
-                        <input type="text" name="asal sekolah" class="form-control" placeholder="Masukan asal sekolah" value="<?php echo $this->session->userdata('asal_sekolah'); ?>">
-                </div>
-            </div>
-
-        <div class="col-sm">
-            <div class="form-group">
-                <label>Pilihan_Sekolah:</label>
-                <input type="text" name="pilihan_id_pilihan" class="form-control" placeholder="Masukan No Hp" value="<?php echo $this->session->userdata('pilihan'); ?>">
-            </div>
-        </div>
-        <div class="alert alert-primary">
-                <strong>Upload Berkas</strong>     
-        </div>
-        <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Kartu Keluarga</label>
-                        <input type="file" name="desa" class="form-control" placeholder="Masukan Nama Desa">
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>SKHUN</label>
-                        <input type="file" name="Kecamatan" class="form-control" placeholder="Masukan Nama Kecamatan">    
-                   </div>
-                </div>
-            </div>
-            <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Kartu Keluarga</label>
-                        <input type="file" name="desa" class="form-control" placeholder="Masukan Nama Desa">
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>SKHUN</label>
-                        <input type="file" name="Kecamatan" class="form-control" placeholder="Masukan Nama Kecamatan">    
-                   </div>
-                </div>
-            </div>
-            <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Kartu Keluarga</label>
-                        <input type="file" name="desa" class="form-control" placeholder="Masukan Nama Desa">
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>SKHUN</label>
-                        <input type="file" name="Kecamatan" class="form-control" placeholder="Masukan Nama Kecamatan">    
-                   </div>
-                </div>
-            </div>
-        
-
-
-        <div class="row">
-            <div class="col-sm">
-                <button type="submit" name="Submit" id="Submit" class="btn btn-primary">Simpan</button>
-                <button type="reset" class="btn btn-secondary">Reset</button>
-            </div>
-        </div>
-        </form> -->
-                        <!-- Earnings (Monthly) Card Example -->
-                        
-
-                    </div>
+                    <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Data Santri</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Nama Lengkap</th>
+                                                <th>NISN</th>
+                                                <th>Email</th>
+                                                <th>Username</th>
+                                                <th>Password</th>
+                                                <th>Tempat Lahir</th>
+                                                <th>Tanggal Lahir</th>
+                                                <th>No HP</th>
+                                                <th>Alamat</th>
+                                                <th>Desa</th>
+                                                <th>Kecamatan</th>
+                                                <th>Kabupaten</th>
+                                                <th>Provinsi</th>
+                                                <th>Asal Sekolah</th>
+                                                <th>Ukuran Pakaian</th>
+                                                <th>Jenis Kelamin</th>
+                                                <th>Pilihan</th>
+                                                <th>Ayah</th>
+                                                <th>Ibu</th>
+                                                <th>Keterangan</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php 
+                                        $no = 1;
+                                        foreach($data_siswa as $siswa){
+                                        ?>
+                                            <tr>
+                                                <td><?php echo $no++ ?></td>
+                                                <td><?php echo $siswa->nama_calon ?></td>
+                                                <td><?php echo $siswa->nisn ?></td>
+                                                <td><?php echo $siswa->email ?></td>
+                                                <td><?php echo $siswa->username ?></td>
+                                                <td><?php echo $siswa->password ?></td>
+                                                <td><?php echo $siswa->tempat_lahir ?></td>
+                                                <td><?php echo $siswa->tanggal_lahir ?></td>
+                                                <td><?php echo $siswa->no_hp ?></td>
+                                                <td><?php echo $siswa->alamat ?></td>
+                                                <td><?php echo $siswa->desa ?></td>
+                                                <td><?php echo $siswa->kecamatan ?></td>
+                                                <td><?php echo $siswa->kabupaten ?></td>
+                                                <td><?php echo $siswa->propinsi ?></td>
+                                                <td><?php echo $siswa->asal_sekolah ?></td>
+                                                <td><?php echo $siswa->ukuran_pakaian ?></td>
+                                                <td><?php echo $siswa->jenis_kelamin_id_jenis ?></td>
+                                                <td><?php echo $siswa->pilihan_id_pilihan ?></td>
+                                                <td><?php echo $siswa->ayah_nik ?></td>
+                                                <td><?php echo $siswa->ibu_nik ?></td>
+                                                <td><?php echo $siswa->keterangan ?></td>
+                                            </tr>
+                                            <?php } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
 
                 </div>
                 <!-- /.container-fluid -->

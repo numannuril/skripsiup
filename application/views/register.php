@@ -51,22 +51,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user" name="nama_calon"
-                                            placeholder="Nama Lengkap">
+                                            placeholder="Nama Lengkap" required>
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="text" class="form-control form-control-user" name="nisn"
-                                            placeholder="NISN">
+                                            placeholder="NISN" required>
                                     </div>
                                 </div>
                                 <form class="user">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user" name="no_hp"
-                                            placeholder="Nomor Handphone">
+                                            placeholder="Nomor Handphone" required>
                                     </div>
                                     <div class="col-sm-6">
                                         <label>Jenis Kelamin</label>
-                                            <select class="custom-select" name="jenis_kelamin_id_jenis">
+                                            <select class="custom-select" name="jenis_kelamin_id_jenis" required>
                                                 <option selected>Open this select menu</option>
                                                     <?php 
                                                     foreach($jenis_kelamin as $jenis_kelamin){
@@ -82,11 +82,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user" name="asal_sekolah"
-                                            placeholder="Asal Sekolah">
+                                            placeholder="Asal Sekolah" required>
                                     </div>
                                     <div class="col-sm-6">
                                         <label>Pilihan Sekolah</label>
-                                            <select class="custom-select" name="pilihan_id_pilihan">
+                                            <select class="custom-select" name="pilihan_id_pilihan" required>
                                                 <option selected>Open this select menu</option>
                                                     <?php 
                                                     foreach($pilihan as $pilihan_sekolah){
@@ -102,14 +102,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user" name="tempat_lahir"
-                                            placeholder="Tempat Lahir">
+                                            placeholder="Tempat Lahir" required>
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="date" class="form-control form-control-user" name="tanggal_lahir"
-                                            placeholder="Tanggal Lahir">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="hidden" class="form-control form-control-user" name="level" value="users">
+                                            placeholder="Tanggal Lahir" required>
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-user btn-block">Daftar</button>

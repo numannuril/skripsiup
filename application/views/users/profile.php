@@ -1,223 +1,249 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
+        defined('BASEPATH') OR exit('No direct script access allowed');
+        ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>Lengkapi Data Santri Baru</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <script src="jquery/jquery-3.4.1.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
 
-</head>
-<body>
-    <div class="container p-3 my-3 border">
-    <h1 class="text-center">Lengkapi Data Santri Baru</h1>
-    <?php
-    //Include file koneksi, untuk koneksikan ke database
-    include "koneksi.php";
-    
-    //Fungsi untuk mencegah inputan karakter yang tidak sesuai
-    function input($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
-    //Cek apakah ada kiriman form dari method post
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <meta name="description" content="">
+            <meta name="author" content="">
 
-        $nama=input($_POST["nama"]);
-        $nisn=input($_POST["nisn"]);
-        $tempat_lahir=input($_POST["tempat_lahir"]);
-        $tanggal_lahir=input($_POST["tanggal_lahir"]);
-        $no_hp =input ($_POST["no_hp"]);
-        $alamat=input($_POST["alamat"]);
-        $desa =input ($_POST["desa"]);
-        $provinsi=input($_POST["kecamatan"]);
-        $kabupaten=input($_POST["kabupaten"]);
-        $kecamatan=input($_POST["provinsi"]);
-        $asal_sekolah =input ($_POST["asal_sekolah"]);
-        $ukuran_seragam=input($_POST["ukuran_seragam"]);
-        $jk =input ($_POST["jk"]);
-        $agama =input ($_POST["agama"]);
-        $pilihan_sekolah=input($_POST["pilihan_sekolah"]);
-        $foto =input ($_POST["foto"]);
+            <title>Profile Santri</title>
 
-        //Query input menginput data kedalam tabel pendaftaraan
-        $sql="insert into pendaftaraan (nama,nisn,tempat_lahir,tanggal_lahir,no_hp,alamat,desa,kecamatan,kabupaten,provinsi,asal_sekolah, ukuran_seragam,jk,agama,pilihan_sekolah,foto) values
-		(,'$nama',$nisn,','$email'$username',$password,'$tempat_lahir','$tanggal_lahir',$no_hp','$alamat','$desa','$provinsi','$kabupaten','$kecamatan','$asal_sekolah'$ukuran_seragam','$jk','$agama',$pilihan_sekolah','$foto)";
+            <!-- Custom fonts for this template -->
+            <link href="<?php echo base_url() ?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+            <link
+                href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+                rel="stylesheet">
 
-        //Mengeksekusi/menjalankan query diatas
-        $hasil=mysqli_query($kon,$sql);
+            <!-- Custom styles for this template -->
+            <link href="<?php echo base_url() ?>assets/css/sb-admin-2.min.css" rel="stylesheet">
 
-        //Kondisi apakah berhasil atau tidak dalam mengeksekusi query diatas
-        if ($hasil) { 
-            echo "<div class='alert alert-success'> Selamat $nama anda telah berhasil mendaftar.</div>"; 
-        }
-        else {
-            echo "<div class='alert alert-danger'> Pendaftaraan Gagal.</div>";
-        }
-    }
-    ?>
-    <form id="form" method="post">
-        
-        <div class="alert alert-primary">
-            <strong>Data Diri</strong>
-        </div>
+
+        </head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url('users/dashboard') ?>">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-fa fa-address-card"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">PSB ONLINE</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url('users/dashboard') ?>">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <!-- Heading -->
+           
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="<?php echo base_url('users/data_diri') ?>" >
+                    <i class="fas fa-fw fa-book"></i>
+                    <span>Data Santri</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url('users/upload_berkas') ?>" >
+                    <i class="fas fa-fw fa-file"></i>
+                    <span>Upload Berkas</span>
+                </a>
+            </li>
             
-        
-        
-        <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Nama Lengkap:</label>
-                        <input type="text" name="nama" class="form-control" placeholder="Masukan Nama Lengkap">
-                </div>
-        
-        <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Nomor Identitas (NISN):</label>
-                        <input type="text" name="nisn" class="form-control" placeholder="Masukan Nomor NISN">
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Jenis Kelamin:</label>
-                        <select class="form-control" name="jk">
-                            <option>Pilih</option>
-                            <option value="1">Laki-laki</option>
-                            <option value="2">Perempuan</option>
-                        </select>
-                </div>
-            </div>
-        </div>
-                </div>
-            </div>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Pembayaran</span>
+                </a>
+            </li>
 
-        <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Tempat Lahir:</label>
-                        <input type="text" name="tempat_lahir" class="form-control" placeholder="Masukan Tempat Lahir">
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Tanggal Lahir:</label>
-                        <input type="date" name="tanggal_lahir" class="form-control">
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>No Hp:</label>
-                        <input type="text" name="No_hp" class="form-control" placeholder="Masukan No Hp">    
-                   </div>
-                </div>
-                <div class="col-sm">
-                <div class="form-group">
-                    <label>Upload Foto</label>
-                        <input type="file" name="foto" class="form-control" placeholder="Upload foto">    
-                   </div>
-                </div>
-            </div>
-
-        <div class="alert alert-primary">
-                <strong>Data Alamat Asal</strong>
-        </div>
-            <div class="row">
-                <div class="col-sm">
-                    <div class="form-group">
-                    <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Desa:</label>
-                        <input type="text" name="desa" class="form-control" placeholder="Masukan Nama Desa">
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Kecamatan:</label>
-                        <input type="text" name="Kecamatan" class="form-control" placeholder="Masukan Nama Kecamatan">    
-                   </div>
-                </div>
-            </div>
-            <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Kabupaten:</label>
-                        <input type="text" name="kabupaten" class="form-control" placeholder="Masukan Nama Kabupaten">
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Provinsi:</label>
-                        <input type="text" name="email" class="form-control" placeholder="Masukan Nama Provinsi">    
-                   </div>
-                </div>
-            </div>                     
-    <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Alamat:</label>
-                        <textarea class="form-control" name="alamat" rows="2" id="alamat"></textarea>
-                </div>
-            </div>
+            <!-- Nav Item - Tables -->
             
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Search -->
+                    <!-- <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form> -->
+
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                       
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $this->session->userdata('id_calon'); ?></span>
+                                <img class="img-profile rounded-circle"
+                                    src="<?php echo base_url() ?>assets/img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="<?php echo base_url('users/profile'); ?>">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="<?php echo base_url('login/logout'); ?>" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Profile</h1>
+                    </div>
+
+                    <h1>Profil Pengguna</h1>
+<p>Nama Calon Siswa: <?php echo $calon_siswa->nama_calon; ?></p>
+<p>NISN: <?php echo $calon_siswa->nisn; ?></p>
+<p>Tempat Lahir: <?php echo $calon_siswa->tempat_lahir; ?></p>
+<p>Tanggal Lahir: <?php echo $calon_siswa->tanggal_lahir; ?></p>
+<p>No. HP: <?php echo $calon_siswa->no_hp; ?></p>
+<p>Asal Sekolah: <?php echo $calon_siswa->asal_sekolah; ?></p>
+
+
+
+<a href="<?php echo site_url('profile/edit'); ?>">Edit Profil</a>
+
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="<?php echo base_url('login/logout'); ?>">Logout</a>
+                </div>
+            </div>
+        </div>
     </div>
 
-        <div class="alert alert-primary">
-            <strong>Data Pendidikan</strong>
-        </div>
-        
-        <div class="col-sm">
-            <div class="form-group">
-                <label>Ukuran_Seragam:</label>
-                    <select class="form-control" name="agama">
-                        <option>Pilih</option>
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">Xl</option>
-                        <option value="XXL">XXL</option>
-                        <option value="Lainnya">Lainnya</option>
-                    </select>
-            </div>
-        </div>
-        <div class="col-sm">
-                <div class="form-group">
-                    <label>Asal Sekolah:</label>
-                        <input type="text" name="asal sekolah" class="form-control" placeholder="Masukan asal sekolah">
-                </div>
-            </div>
+   <!-- Bootstrap core JavaScript-->
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="<?php echo base_url() ?>assets/vendor/jquery/jquery.min.js"></script>
+            <script src="<?php echo base_url() ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <div class="col-sm">
-            <div class="form-group">
-                <label>Pilihan_Sekolah:</label>
-                    <select class="form-control" name="agama">
-                        <option>Pilih</option>
-                        <option value="Mts putra 1">Mts Putra 1</option>
-                        <option value="Mts putra 2">Mts Putra2</option>
-                        <option value="Mts Putri 3">Mts Putri 3</option>
-                        <option value="Manu Putra">MANU Putra</option>
-                        <option value="Manu Putri">MANU Putri</option>
-                        <option value="MAN">MAN 3</option>
-                        <option value="Lainnya">Lainnya</option>
-                    </select>
-            </div>
-        </div>
+            <!-- Core plugin JavaScript-->
+            <script src="<?php echo base_url() ?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-        <div class="row">
-            <div class="col-sm">
-                <button type="submit" name="Submit" id="Submit" class="btn btn-primary">Daftar</button>
-                <button type="reset" class="btn btn-secondary">Reset</button>
-            </div>
-        </div>
-        </form>
-    </div>
+            <!-- Custom scripts for all pages-->
+            <script src="<?php echo base_url() ?>assets/js/sb-admin-2.min.js"></script>
+
+            <!-- Page level plugins -->
+            <script src="<?php echo base_url() ?>assets/vendor/datatables/jquery.dataTables.min.js"></script>
+            <script src="<?php echo base_url() ?>assest/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+            <!-- Page level custom scripts -->
+            <script src="<?php echo base_url() ?>assets/js/demo/datatables-demo.js"></script>
+
 </body>
+
 </html>

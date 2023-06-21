@@ -12,4 +12,18 @@ class M_tables extends CI_Model {
         return $this->db->get();
         
     }
+
+    public function get_admin() {
+        //select semua data siswa
+        $this->db->select('*');
+        $this->db->from('admin');
+        $this->db->order_by('id_admin', 'DESC');
+        return $this->db->get();
+        
+    }
+    
+	public function hapus_data($where,$table){
+		$this->db->where($where);
+		$this->db->delete($table);
+	}
 }

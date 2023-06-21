@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title> Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="<?php echo base_url() ?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -37,7 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url('users/dashboard') ?>">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <i class="fas fa-fa fa-address-card"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">PSB ONLINE </div>
             </a>
@@ -52,13 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <span>Dashboard</span></a>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
             <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
-            </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -77,8 +71,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </a>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -90,11 +82,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
             <!-- Nav Item - Tables -->
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li> -->
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -122,7 +109,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </button>
 
                     <!-- Topbar Search -->
-                    <form
+                    <!-- <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
@@ -133,7 +120,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form> -->
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -176,7 +163,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?php echo base_url('users/profile'); ?>">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
@@ -197,206 +184,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Lengkapi Data Diri</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Landing Page</h1>
                     </div>
 
-                    <!-- Content Row -->
-                    <!-- <div class="row">
-                    <form id="form" method="post">
-        
-        <div class="alert alert-primary">
-            <strong>Data Diri</strong>
-        </div>
-            
-        
-        <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Nama Lengkap:</label>
-                        <input type="text" name="nama" class="form-control" placeholder="Masukan Nama Lengkap" value="">
-                </div>
-        <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Nomor Identitas (NISN):</label>
-                        <input type="text" name="nisn" class="form-control" placeholder="Masukan Nomor NISN" value="">
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Jenis Kelamin:</label>
-                    <input type="text" name="jenis_kelamin" class="form-control" placeholder="Masukan No Hp" value="">
-                </div>
-            </div>
-        </div>
-                </div>
-            </div>
-
-        <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Tempat Lahir:</label>
-                        <input type="text" name="tempat_lahir" class="form-control" placeholder="Masukan Tempat Lahir" value="">
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Tanggal Lahir:</label>
-                        <input type="date" name="tanggal_lahir" class="form-control" value="">
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>No Hp:</label>
-                        <input type="text" name="no_hp" class="form-control" placeholder="Masukan No Hp" value="">    
-                   </div>
-                </div>
-                <div class="col-sm">
-                <div class="form-group">
-                    <label>Upload Foto</label>
-                        <input type="file" name="foto" class="form-control" placeholder="Upload Foto">    
-                   </div>
-                </div>
-            </div>
-
-        <div class="alert alert-primary">
-                <strong>Data Alamat Asal</strong>
-        </div>
-            <div class="row">
-                <div class="col-sm">
-                    <div class="form-group">
-                    <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Desa:</label>
-                        <input type="text" name="desa" class="form-control" placeholder="Masukan Nama Desa">
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Kecamatan:</label>
-                        <input type="text" name="Kecamatan" class="form-control" placeholder="Masukan Nama Kecamatan">    
-                   </div>
-                </div>
-            </div>
-            <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Kabupaten:</label>
-                        <input type="text" name="kabupaten" class="form-control" placeholder="Masukan Nama Kabupaten">
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Provinsi:</label>
-                        <input type="text" name="email" class="form-control" placeholder="Masukan Nama Provinsi">    
-                   </div>
-                </div>
-            </div>                     
-    <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Alamat:</label>
-                        <textarea class="form-control" name="alamat" rows="2" id="alamat"></textarea>
-                </div>
-            </div>
-            
-    </div>
-
-        <div class="alert alert-primary">
-            <strong>Data Pendidikan</strong>
-        </div>
-        
-        <div class="col-sm">
-            <div class="form-group">
-                <label>Ukuran_Seragam:</label>
-                    <select class="form-control" name="agama">
-                        <option>Pilih</option>
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">Xl</option>
-                        <option value="XXL">XXL</option>
-                        <option value="Lainnya">Lainnya</option>
-                    </select>
-            </div>
-        </div>
-        <div class="col-sm">
-                <div class="form-group">
-                    <label>Asal Sekolah:</label>
-                        <input type="text" name="asal sekolah" class="form-control" placeholder="Masukan asal sekolah" value="">
-                </div>
-            </div>
-
-        <div class="col-sm">
-            <div class="form-group">
-                <label>Pilihan_Sekolah:</label>
-                <input type="text" name="pilihan_id_pilihan" class="form-control" placeholder="Masukan No Hp" value="">
-            </div>
-        </div>
-        <div class="alert alert-primary">
-                <strong>Upload Berkas</strong>     
-        </div>
-        <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Kartu Keluarga</label>
-                        <input type="file" name="desa" class="form-control" placeholder="Masukan Nama Desa">
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>SKHUN</label>
-                        <input type="file" name="Kecamatan" class="form-control" placeholder="Masukan Nama Kecamatan">    
-                   </div>
-                </div>
-            </div>
-            <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Kartu Keluarga</label>
-                        <input type="file" name="desa" class="form-control" placeholder="Masukan Nama Desa">
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>SKHUN</label>
-                        <input type="file" name="Kecamatan" class="form-control" placeholder="Masukan Nama Kecamatan">    
-                   </div>
-                </div>
-            </div>
-            <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Kartu Keluarga</label>
-                        <input type="file" name="desa" class="form-control" placeholder="Masukan Nama Desa">
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>SKHUN</label>
-                        <input type="file" name="Kecamatan" class="form-control" placeholder="Masukan Nama Kecamatan">    
-                   </div>
-                </div>
-            </div>
-        
-
-
-        <div class="row">
-            <div class="col-sm">
-                <button type="submit" name="Submit" id="Submit" class="btn btn-primary">Simpan</button>
-                <button type="reset" class="btn btn-secondary">Reset</button>
-            </div>
-        </div>
-        </form> -->
+                  
                         <!-- Earnings (Monthly) Card Example -->
                         </div>
                     </div>
 
-                </div>
+                <!-- </div> -->
                 <!-- /.container-fluid -->
 
-            </div>
+            <!-- </div> -->
             <!-- End of Main Content -->
 
             <!-- Footer -->

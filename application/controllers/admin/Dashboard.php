@@ -12,11 +12,15 @@ class Dashboard extends CI_Controller {
 	}
 	public function index()
     {
-        
+        $this->load->model('m_tables');
+
+        $data = array(
+            'data_siswa' => $this->m_tables->get_siswa()->result()
+        );
         
         //load view
 		
-        $this->load->view('admin/dashboard');
+        $this->load->view('admin/dashboard', $data);
     }
 	
 }

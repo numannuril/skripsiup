@@ -13,12 +13,7 @@ class Dashboard extends CI_Controller {
 	public function index()
     {
         //load model
-        $this->load->model('m_dashboard');
-
-        
-        //load view
-		$data['data_calon']= $this->m_dashboard->get_member_by_id($this->session->userdata('id_calon'));
-        $this->load->view('users/dashboard', $data);
+        $this->load->view('users/dashboard');
     }
 	
 }

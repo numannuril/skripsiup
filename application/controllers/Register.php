@@ -32,6 +32,20 @@ class Register extends CI_Controller {
     $jenis_kelamin  = $this->input->post('jenis_kelamin_id_jenis');
     $pilihan        = $this->input->post('pilihan_id_pilihan');
 
+    // Validasi minimal tanggal lahir
+    $tanggal_min = '2000-01-01'; // Tanggal minimal yang diinginkan
+    if ($tanggal_lahir < $tanggal_min) {
+        $this->session->set_flashdata('error', 'Tanggal lahir minimal adalah ' . $tanggal_min);
+        redirect('register');
+    }
+
+    // Validasi maksimal tanggal lahir
+    $tanggal_max = '2010-01-01'; // Menggunakan tanggal saat ini sebagai batas maksimal
+    if ($tanggal_lahir > $tanggal_max) {
+        $this->session->set_flashdata('error', 'Tanggal lahir maksimal adalah ' . $tanggal_max);
+        redirect('register');
+    }
+
     $data = array(
         'nama_calon'    => $nama_calon,
         'nisn'          => $nisn,

@@ -9,11 +9,11 @@ class Login extends CI_Controller {
  
 	}
  
-	function index(){
+	public function index(){
 		$this->load->view('login');
 	}
  
-	function aksi_login(){
+	public function aksi_login(){
 		$username = $this->input->post('username');
 		$password = md5($this->input->post('password'));
 		
@@ -28,6 +28,8 @@ class Login extends CI_Controller {
         
         if ($total_calon > 0){
             $this->session->set_userdata(array(
+                'username'=>$row1['username'],
+                'email'=>$row1['email'],
                 'id_calon'=>$row1['nama_calon'],
                 'nisn'=>$row1['nisn'],
                 'tempat_lahir'=>$row1['tempat_lahir'],
@@ -44,7 +46,7 @@ class Login extends CI_Controller {
             redirect('users/dashboard');
         }elseif($total_admin > 0){
             $this->session->set_userdata(array(
-                'id_admin'=>$row2['username'],
+                'id_admin'=>$row2['nama_lengkap'],
                 'level'=>'admin'
             )
         );
@@ -53,35 +55,7 @@ class Login extends CI_Controller {
 		}else{
 			echo "Username dan password salah !";
 		}
-        // $username = $this->input->post('username');
-        // $password = sha1($this->input->post('password'));
-
-        // $users = $this->Model_login->cek_users($username,$password);
-        // $pegawai = $this->Model_login->cek_pegawai($username,$password);
-
-        // $row1 = $users->row_array();
-        // $row2 = $pegawai->row_array();
-
-        // $total_users = $users->num_rows();
-        // $total_pegawai = $pegawai->num_rows();
-
-        // if ($total_users > 0){
-        //     $this->session->set_userdata(array(
-        //         'id'=>$row1['username'],
-        //         'level'=>'users'
-        //     )
-        // );
-        //     redirect('Administrator/home');
-        // }elseif($total_pegawai > 0){
-        //     $this->session->set_userdata(array(
-        //         'id'=>$row2['id_pegawai'],
-        //         'level'=>'pegawai')
-        //     );
-        //     redirect('Pegawai/home');
-        // }else{
-        //     echo "<script>window.alert('Maaf, gagal Login');
-        //                       window.location=('login')</script>";
-        // }
+       
 
 	}
  
