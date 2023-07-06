@@ -46,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <h1 class="display-3 fw-bolder text-white mb-2">Pendaftaran Santri Baru </h1>
                             <h1 class="display-4 fw-bolder text-white mb-2">Al-Kautsar Buntet Pesantren </h1> 
                             <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="<?php echo base_url('register'); ?>">Daftar</a>">Daftar</a>
+                                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="<?php echo base_url('register'); ?>">Daftar</a>
                              
                             </div>
                         </div>
@@ -74,44 +74,58 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="text-center mb-5">
                         <h1 class="fw-bolder">Alur Pendaftaran Online</h2>
                 </div>
-                        <div class="card-deck">
+                        <!-- <div class="card-deck"> -->
                             <div class="card">
                                 <div class="hijau-bar text-center">1</div>
                               <div class="card-body">
                                 <h5 class="card-title">Pembuatan Akun</h5>
                                 <p class="card-text">Mengisi identitas calon peserta didik sekaligus pembuatan akun untuk mendapatkan Nomor Registrasi..</p>
                               </div>
-                            </div>
+                            </div><br>
                             <div class="card">
                                 <div class="hijau-bar text-center">2</div>
                               <div class="card-body">
-                                <h5 class="card-title">Login & Melengkapi Data</h5>
-                                <p class="card-text">Melengkapi data peserta didik, data orang tua / wali atau mahrom khususnya santri putri..</p>
+                                <h5 class="card-title">administrasi pendaftaran</h5>
+                                <p class="card-text">Sebelum bisa mengisi formulir, calon santri/orangtua harus membayar biaya pendaftaran melalui transfer bank sebesar Rp 100.000 .</p>
                               </div>
-                            </div>
-                            <div class="card">
+                            </div><br>
+                            <div class="card ">
                                 <div class="hijau-bar text-center">3</div>
+                              <div class="card-body">
+                                <h5 class="card-title">Konfirmasi Pendaftaran</h5>
+                                <p class="card-text">Setelah melakukan transfer pembayaran agar melakukan konfirmasi pembayaran melalui Whatsapp CS Panitia PSB:
+                                                        CS 1 :  0812 3377 1715   |   CS 2 :  0812 3377 1716 dengan mengirim foto bukti transfer, nama lengkap calon santri, username/no HP/email akun pendaftaran. Tunggu balasan dari panitia.</p>
+                              </div>
+                            </div><br>
+                            <div class="card">
+                                <div class="hijau-bar text-center">4</div>
+                              <div class="card-body">
+                                <h5 class="card-title">Validasi Pembayaran</h5>
+                                <p class="card-text">Panitia melakukan validasi pembayaran pada jam kerja pukul 07:30 WIB s/d 15:00 WIB. Apabila pembayaran berhasil divalidasi maka panitia akan membalas pesan WA dan membuka akses pengisian formulir pada akun pendaftaran calon santri.</p>
+                              </div>
+                            </div><br>
+                            <div class="card ">
+                                <div class="hijau-bar text-center">5</div>
+                              <div class="card-body">
+                                <h5 class="card-title">Pengisian Data Diri</h5>
+                                <p class="card-text">Calon santri login/masuk ke akun pendaftaran untuk mengisi formulir secara lengkap.</p>
+                              </div>
+                            </div><br>
+                            <div class="card">
+                                <div class="hijau-bar text-center">6</div>
                               <div class="card-body">
                                 <h5 class="card-title">Mengunggah Berkas</h5>
                                 <p class="card-text">Mengunggah berkas persyaratan dan berkas pendukung lainnya yang berupa gambar / foto..</p>
                               </div>
-                            </div>
+                            </div><br>
                             <div class="card">
-                                <div class="hijau-bar text-center">4</div>
+                                <div class="hijau-bar text-center">7</div>
                                 <div class="card-body">
                                   <h5 class="card-title">Pembayaran </h5>
                                   <p class="card-text">Melakukan pembayaran biaya pendaftaran sesuai pendidikan yang telah dipilih..</p>
                                 </div>
-                              </div>
-                              <div class="card">
-                                <div class="hijau-bar text-center">5</div>
-                                <div class="card-body">
-                                  <h5 class="card-title">Cetak Pendaftaran</h5>
-                                  <p class="card-text">Cetak atau simpan Nomor Registrasi sebagai bukti pendaftaran untuk ditunjukkan ke petugas PSB..</p>
-                                </div>
-                              </div>
-                        </div>
-                          </div>
+                              </div><br>
+                          <!-- </div> -->
                             
         </section>
         <section class="py-5 border-bottom">
@@ -121,6 +135,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <p class="display-7 text-black mb-2">Untuk memenuhi persyaratan pendaftaran santri baru, perlu beberapa berkas
                                 yang harus disiapkan:</p>
                             </div>
+                            <div class="display-7 text-black mb-2">
                                 <ol>
                                     <li>Photo Copy Akta Kelahiran Peserta Didik</li>
                                     <li>Photo Copy KTP orang tua/wali</li>
@@ -131,7 +146,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <p>sebanyak 3 lembar</p>
                                     <li>Surat Keterangan Sehat dari Fasilitas Kesehatan</li>                                    </li>
                                   </ol>
-                        
+</div>
                             </div>
                         </section>
         <section class="py-5 border-bottom">
@@ -144,7 +159,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <div class="hijau-bar text-center">1</div>
                                   <div class="card-body">
                                     <h5 class="card-title">Checkup / Periksa Kesehatan</h5>
-                                    <p class="card-text">Pemeriksaan kesehatan dari calon peserta didik oleh petugas klinik Az-Zainiyah.</p>
+                                    <p class="card-text">Pemeriksaan kesehatan dari calon peserta didik oleh petugas klinik Al-Kautsar.</p>
                                   </div>
                                 </div>
                                 <div class="card">
@@ -158,7 +173,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <div class="hijau-bar text-center">3</div>
                                   <div class="card-body">
                                     <h5 class="card-title">Ikrar Santri</h5>
-                                    <p class="card-text">Melakukan Ikrar Santri dan kesediaan mengikuti aturan yang ditetapkan oleh Pondok Pesantren Nurul Jadid.</p>
+                                    <p class="card-text">Melakukan Ikrar Santri dan kesediaan mengikuti aturan yang ditetapkan oleh Pondok Pesantren Buntet .</p>
                                   </div>
                                 </div>
                                 <div class="card">

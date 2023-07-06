@@ -198,11 +198,72 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <h1 class="h3 mb-2 text-gray-800">Data Website</h1>
 
                     <!-- Content Row -->
-                    <div class="row">
-                    
-                        
+                    <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Data Website</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Tanggal</th>
+                                                <th>Alur</th>
+                                                <th>Aksi</th>
+                                                <!-- <th>Email</th>
+                                                <th>Username</th>
+                                                <th>Password</th>
+                                                <th>Tempat Lahir</th>
+                                                <th>Tanggal Lahir</th>
+                                                <th>No HP</th>
+                                                <th>Alamat</th>
+                                                <th>Desa</th>
+                                                <th>Kecamatan</th>
+                                                <th>Kabupaten</th>
+                                                <th>Provinsi</th>
+                                                <th>Asal Sekolah</th>
+                                                <th>Ukuran Pakaian</th>
+                                                <th>Jenis Kelamin</th>
+                                                <th>Pilihan</th>
+                                                <th>Ayah</th>
+                                                <th>Ibu</th>
+                                                <th>Keterangan</th>
+                                                <th>Aksi</th> -->
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php 
+                                        $no = 1;
+                                        foreach($data_alur as $alur){
+                                        ?>
+                                            <tr>
+                                                <td><?php echo $no++ ?></td>
+                                                <td><?php echo $alur->judul ?></td>
+                                                <td><?php echo $alur->tanggal ?></td>
+                                                <td><?php echo $alur->alur ?></td>
+                                                <td>
+                                                    <a href="<?php echo site_url('admin/data_website/hapus/'.$alur->id_website);?>" class="btn btn-sm btn-danger">Delete</a>		
+                                                </td>
+                                            </tr>
+                                            <?php } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <form action="<?php echo base_url() ?>index.php/admin/data_website/simpan" method="POST">
+    <label for="tanggal">Tanggal:</label>
+    <input type="date" id="tanggal" name="tanggal" required><br><br>
 
-                    </div>
+    <label for="berita">judul</label><br>
+    <textarea id="berita" name="judul" rows="4" cols="50" required></textarea><br><br>
+    
+    <label for="berita">Berita:</label><br>
+    <textarea id="berita" name="alur" rows="4" cols="50" required></textarea><br><br>
+    
+    <input type="submit" value="Submit">
+  </form>
 
                 </div>
                 <!-- /.container-fluid -->

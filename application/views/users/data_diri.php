@@ -73,7 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="<?php echo base_url('users/pembayaran') ?>">
                     <i class="fas fa-folder"></i>
                     <span>Pembayaran</span>
                 </a>
@@ -155,7 +155,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $this->session->userdata('id_calon'); ?></span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $this->session->userdata('nama_calon'); ?></span>
                                 <img class="img-profile rounded-circle"
                                     src="<?php echo base_url() ?>assets/img/undraw_profile.svg">
                             </a>
@@ -186,140 +186,156 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
 
                     <!-- Content Row -->
-                        <form method="post">
+                
+<form action="<?php echo base_url() ?>index.php/users/data_diri/simpan" method="POST">
 
-                            <div class="alert alert-primary text-center">
-                                <strong>Data Diri</strong>
-                            </div>
+    <div class="alert alert-primary text-center">
+        <strong>Data Diri</strong>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <div class="form-group">
+                <label>Nama Lengkap:</label>
+                <input type="hidden" name="id_calon" value="<?php echo $calon->id_calon ?>">
+                <input type="text" name="nama_calon" class="form-control" placeholder="Masukkan Nama Lengkap"
+                    value="<?php echo $calon->nama_calon ?>" readonly>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="form-group">
+                <label>Nomor Identitas (NISN):</label>
+                <input type="text" name="nisn" class="form-control" placeholder="Masukkan Nomor NISN"
+                    value="<?php echo $calon->nisn ?>" readonly>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="form-group">
+                <label>Jenis Kelamin:</label>
+                <input type="text" name="jenis_kelamin_id_jenis" class="form-control"
+                    placeholder="Masukkan Jenis Kelamin" value="<?php echo $calon->jenis_kelamin_id_jenis ?>" readonly>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm">
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="text" name="email" class="form-control"
+                    placeholder="Masukkan Email">
+            </div>
+</div>
+    <div class="row">
+        <div class="col-sm">
+            <div class="form-group">
+                <label>Tempat Lahir:</label>
+                <input type="text" name="tempat_lahir" class="form-control" placeholder="Masukkan Tempat Lahir"
+                    value="<?php echo $calon->tempat_lahir ?>" readonly>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="form-group">
+                <label>Tanggal Lahir:</label>
+                <input type="date" name="tanggal_lahir" class="form-control" value="<?php echo $calon->tanggal_lahir ?>"
+                    readonly>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="form-group">
+                <label>No Hp:</label>
+                <input type="text" name="no_hp" class="form-control" placeholder="Masukkan No Hp"
+                    value="<?php echo $calon->no_hp ?>">
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="form-group">
+                <label>Upload Foto</label>
+                <!-- <input type="file" name="foto" class="form-control" placeholder="Upload Foto"> -->
+            </div>
+        </div>
+    </div>
 
-                            <div class="row">
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label>Nama Lengkap:</label>
-                                        <input type="text" name="nama" class="form-control" placeholder="Masukkan Nama Lengkap" value="<?php echo $this->session->userdata('id_calon'); ?>" readonly>
-                                    </div>
-                                </div>
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label>Nomor Identitas (NISN):</label>
-                                        <input type="text" name="nisn" class="form-control" placeholder="Masukkan Nomor NISN" value="<?php echo $this->session->userdata('nisn'); ?>" readonly>
-                                    </div>
-                                </div>
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label>Jenis Kelamin:</label>
-                                        <input type="text" name="jenis_kelamin" class="form-control" placeholder="Masukkan Jenis Kelamin" value="<?php echo $this->session->userdata('jenis_kelamin'); ?>" readonly>
-                                    </div>
-                                </div>
-                            </div>
+    <div class="alert alert-primary text-center">
+        <strong>Data Alamat Asal</strong>
+    </div>
 
-                            <div class="row">
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label>Tempat Lahir:</label>
-                                        <input type="text" name="tempat_lahir" class="form-control" placeholder="Masukkan Tempat Lahir" value="<?php echo $this->session->userdata('tempat_lahir'); ?>" readonly>
-                                    </div>
-                                </div>
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label>Tanggal Lahir:</label>
-                                        <input type="date" name="tanggal_lahir" class="form-control" value="<?php echo $this->session->userdata('tanggal_lahir'); ?>" readonly>
-                                    </div>
-                                </div>
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label>No Hp:</label>
-                                        <input type="text" name="no_hp" class="form-control" placeholder="Masukkan No Hp" value="<?php echo $this->session->userdata('no_hp'); ?>">
-                                    </div>
-                                </div>
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label>Upload Foto</label>
-                                        <input type="file" name="foto" class="form-control" placeholder="Upload Foto">
-                                    </div>
-                                </div>
-                            </div>
+    <div class="row">
+        <div class="col-sm">
+            <div class="form-group">
+                <label>Desa:</label>
+                <input type="text" name="desa" class="form-control" placeholder="Masukkan Nama Desa">
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="form-group">
+                <label>Kecamatan:</label>
+                <input type="text" name="kecamatan" class="form-control" placeholder="Masukkan Nama Kecamatan">
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="form-group">
+                <label>Kabupaten:</label>
+                <input type="text" name="kabupaten" class="form-control" placeholder="Masukkan Nama Kabupaten">
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="form-group">
+                <label>Provinsi:</label>
+                <input type="text" name="propinsi" class="form-control" placeholder="Masukkan Nama Provinsi">
+            </div>
+        </div>
+    </div>
 
-                            <div class="alert alert-primary text-center">
-                                <strong>Data Alamat Asal</strong>
-                            </div>
+    <div class="row">
+        <div class="col-sm">
+            <div class="form-group">
+                <label>Alamat:</label>
+                <textarea class="form-control" name="alamat" rows="2" id="alamat"><?php echo $calon->alamat ?></textarea>
+            </div>
+        </div>
+    </div>
 
-                            <div class="row">
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label>Desa:</label>
-                                        <input type="text" name="desa" class="form-control" placeholder="Masukkan Nama Desa">
-                                    </div>
-                                </div>
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label>Kecamatan:</label>
-                                        <input type="text" name="kecamatan" class="form-control" placeholder="Masukkan Nama Kecamatan">
-                                    </div>
-                                </div>
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label>Kabupaten:</label>
-                                        <input type="text" name="kabupaten" class="form-control" placeholder="Masukkan Nama Kabupaten">
-                                    </div>
-                                </div>
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label>Provinsi:</label>
-                                        <input type="text" name="provinsi" class="form-control" placeholder="Masukkan Nama Provinsi">
-                                    </div>
-                                </div>
-                            </div>
+    <div class="alert alert-primary text-center">
+        <strong>Data Pendidikan</strong>
+    </div>
 
-                            <div class="row">
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label>Alamat:</label>
-                                        <textarea class="form-control" name="alamat" rows="2" id="alamat"></textarea>
-                                    </div>
-                                </div>
-                            </div>
+    <div class="row">
+        <div class="col-sm">
+            <div class="form-group">
+                <label>Ukuran Seragam:</label>
+                <select class="form-control" name="ukuran_pakaian">
+                    <option>Pilih</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                    <option value="Lainnya">Lainnya</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="form-group">
+                <label>Asal Sekolah:</label>
+                <input type="text" name="asal_sekolah" class="form-control" placeholder="Masukkan Asal Sekolah"
+                    value="<?php echo $calon->asal_sekolah ?>">
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="form-group">
+                <label>Pilihan Sekolah:</label>
+                <input type="text" name="pilihan_id_pilihan" class="form-control"
+                    placeholder="Masukkan Pilihan Sekolah" value="<?php echo $calon->pilihan_id_pilihan ?>">
+            </div>
+        </div>
+    </div>
 
-                            <div class="alert alert-primary text-center">
-                                <strong>Data Pendidikan</strong>
-                            </div>
+    <div class="row text-center">
+        <div class="col-sm">
+            <button type="submit" name="Submit" id="Submit" class="btn btn-primary">Simpan</button>
+            <button type="reset" class="btn btn-secondary">Reset</button>
+        </div>
+    </div>
+</form>
 
-                            <div class="row">
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label>Ukuran Seragam:</label>
-                                        <select class="form-control" name="ukuran_seragam">
-                                            <option>Pilih</option>
-                                            <option value="S">S</option>
-                                            <option value="M">M</option>
-                                            <option value="L">L</option>
-                                            <option value="XL">XL</option>
-                                            <option value="XXL">XXL</option>
-                                            <option value="Lainnya">Lainnya</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label>Asal Sekolah:</label>
-                                        <input type="text" name="asal_sekolah" class="form-control" placeholder="Masukkan Asal Sekolah" value="<?php echo $this->session->userdata('asal_sekolah'); ?>">
-                                    </div>
-                                </div>
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label>Pilihan Sekolah:</label>
-                                        <input type="text" name="pilihan_id_pilihan" class="form-control" placeholder="Masukkan Pilihan Sekolah" value="<?php echo $this->session->userdata('pilihan'); ?>">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row text-center">
-                                <div class="col-sm">
-                                    <button type="submit" name="Submit" id="Submit" class="btn btn-primary">Simpan</button>
-                                    <button type="reset" class="btn btn-secondary">Reset</button>
-                                </div>
-                            </div>
-                        </form>
                     <!-- </div> -->
 </div>
 </div>

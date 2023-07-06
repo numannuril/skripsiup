@@ -134,7 +134,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $this->session->userdata('id_calon'); ?></span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $this->session->userdata('nama_calon'); ?></span>
                                 <img class="img-profile rounded-circle"
                                     src="<?php echo base_url() ?>assets/img/undraw_profile.svg">
                             </a>
@@ -166,13 +166,105 @@
                         <h1 class="h3 mb-0 text-gray-800">Profile</h1>
                     </div>
 
-                    <h1>Profil Pengguna</h1>
-<p>Nama Calon Siswa: <?php echo $calon_siswa->nama_calon; ?></p>
-<p>NISN: <?php echo $calon_siswa->nisn; ?></p>
-<p>Tempat Lahir: <?php echo $calon_siswa->tempat_lahir; ?></p>
-<p>Tanggal Lahir: <?php echo $calon_siswa->tanggal_lahir; ?></p>
-<p>No. HP: <?php echo $calon_siswa->no_hp; ?></p>
-<p>Asal Sekolah: <?php echo $calon_siswa->asal_sekolah; ?></p>
+                    <div class="container">
+<!-- <div class="row flex-lg-nowrap">
+  <div class="col-12 col-lg-auto mb-3" style="width: 200px;">
+    <div class="card p-3">
+      <div class="e-navlist e-navlist--active-bg">
+        <ul class="nav">
+          <li class="nav-item"><a class="nav-link px-2 active" href="#"><i class="fa fa-fw fa-bar-chart mr-1"></i><span>Overview</span></a></li>
+          <li class="nav-item"><a class="nav-link px-2" href="https://www.bootdey.com/snippets/view/bs4-crud-users" target="__blank"><i class="fa fa-fw fa-th mr-1"></i><span>CRUD</span></a></li>
+          <li class="nav-item"><a class="nav-link px-2" href="https://www.bootdey.com/snippets/view/bs4-edit-profile-page" target="__blank"><i class="fa fa-fw fa-cog mr-1"></i><span>Settings</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="col">
+    <div class="row">
+      <div class="col mb-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="e-profile">
+              <div class="row">
+                <div class="col-12 col-sm-auto mb-3">
+                  <div class="mx-auto" style="width: 140px;">
+                    <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">
+                      <span style="color: rgb(166, 168, 170); font: bold 8pt Arial;">140x140</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
+                  <div class="text-center text-sm-left mb-2 mb-sm-0">
+                    <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap"><?php echo $calon_siswa->nama_calon; ?></h4>
+                    <div class="mt-2">
+                      <button class="btn btn-primary" type="button">
+                        <i class="fa fa-fw fa-camera"></i>
+                        <span>Change Photo</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="nav nav-tabs">
+                <li class="nav-item"><a href="" class="active nav-link">Settings</a></li>
+              </ul>
+              <div class="tab-content pt-3">
+                <div class="tab-pane active">
+                  <form class="form" novalidate="">
+                    <div class="row">
+                      <div class="col">
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group">
+                              <label>Nama Lengkap</label>
+                              <input class="form-control" type="text" name="name"  value="<?php echo $calon_siswa->nama_calon; ?>">
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="form-group">
+                              <label>NISN</label>
+                              <input class="form-control" type="text" name="username" value="<?php echo $calon_siswa->nisn; ?>">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group">
+                              <label>Tempat Lahir</label>
+                              <input class="form-control" type="text"  value="<?php echo $calon_siswa->tempat_lahir; ?>">
+                            </div>
+                            <div class="form-group">
+                              <label>No Handphone</label>
+                              <input class="form-control" type="text"  value="<?php echo $calon_siswa->no_hp; ?>">
+                            </div>
+                            <div class="form-group">
+                              <label>Asal Sekolah</label>
+                              <input class="form-control" type="text"  value="<?php echo $calon_siswa->asal_sekolah; ?>">
+                            </div>
+                          </div>
+                        </div>
+                        
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                   
+                    <div class="row">
+                      <div class="col d-flex justify-content-end">
+                        <button class="btn btn-primary" type="submit">Save Changes</button>
+                      </div>
+                    </div>
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
 
 
 

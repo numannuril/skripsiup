@@ -12,9 +12,9 @@ class Profile extends CI_Controller {
         // if (!$this->session->userdata('logged_in')) {
         //     redirect('login');
         // }
-        if($this->session->userdata('level') != "users"){
-			redirect(base_url("login"));
-		}
+        // if($this->session->userdata('level') != "users"){
+		// 	redirect(base_url("login"));
+		// }
         // Mendapatkan username pengguna dari sesi
         $username = $this->session->userdata('username');
         

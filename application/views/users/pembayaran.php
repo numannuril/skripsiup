@@ -1,4 +1,4 @@
-        <?php
+<?php
         defined('BASEPATH') OR exit('No direct script access allowed');
         ?>
 
@@ -74,7 +74,7 @@
 
                     <!-- Nav Item - Pages Collapse Menu -->
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url('users/pembayaran') ?>">
+                        <a class="nav-link" href="#">
                             <i class="fas fa-folder"></i>
                             <span>Pembayaran</span>
                         </a>
@@ -189,65 +189,12 @@
                         <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Upload Berkas</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Pembayaran</h1>
                     </div>
-
-    <!-- DataTales Example -->
-    <div class="alert alert-primary text-center">
-        <strong>Upload Berkas</strong>
+                    <div class="alert alert-primary text-center">
+                        <strong>Coming Soon </strong>
     </div>
-
-    <form method="post">
-        <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Kartu Keluarga</label>
-                    <input type="file" name="kartu_keluarga" class="form-control" placeholder="Masukkan Nama Desa">
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>SKHUN</label>
-                    <input type="file" name="skhun" class="form-control" placeholder="Masukkan Nama Kecamatan">
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Ijazah Sekolah</label>
-                    <input type="file" name="ijazah_sekolah" class="form-control" placeholder="Masukkan Nama Desa">
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Akte Kelahiran</label>
-                    <input type="file" name="akte_kelahiran" class="form-control" placeholder="Masukkan Nama Kecamatan">
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Daftar Nilai</label>
-                    <input type="file" name="daftar_nilai" class="form-control" placeholder="Masukkan Nama Desa">
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="form-group">
-                    <label>Pas Foto Resmi</label>
-                    <input type="file" name="pas_foto_resmi" class="form-control" placeholder="Masukkan Nama Kecamatan">
-                </div>
-            </div>
-        </div>
-
-        <div class="row text-center">
-            <div class="col-sm">
-                <button type="submit" name="Submit" id="Submit" class="btn btn-primary">Simpan</button>
-                <button type="reset" class="btn btn-secondary">Reset</button>
-            </div>
-        </div>
-    </form>
+    
 </div>
 <!-- /.container-fluid -->
     </div>

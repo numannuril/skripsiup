@@ -19,8 +19,20 @@ class M_register extends CI_Model {
     }
 
     public function simpan_siswa($data) {
-        //insert data
-        return $this->db->insert("calon_siswa", $data);
+        // Insert data ke tabel "calon_siswa"
+        $this->db->insert('calon_siswa', $data);
+
+        // Mengembalikan ID calon siswa yang baru ditambahkan
+        // return $this->db->insert_id();
+    }
+
+    public function get_user($id_calon) {
+        // Mengambil data calon siswa berdasarkan ID
+        $this->db->where('id_calon', $id_calon);
+        $query = $this->db->get('calon_siswa');
+
+        // Mengembalikan hasil query dalam bentuk array
+        return $query->row_array();
     }
 
     public function check_username($nisn) {

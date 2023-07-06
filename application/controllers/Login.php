@@ -28,9 +28,10 @@ class Login extends CI_Controller {
         
         if ($total_calon > 0){
             $this->session->set_userdata(array(
+                'id_calon'=>$row1['id_calon'],
                 'username'=>$row1['username'],
                 'email'=>$row1['email'],
-                'id_calon'=>$row1['nama_calon'],
+                'nama_calon'=>$row1['nama_calon'],
                 'nisn'=>$row1['nisn'],
                 'tempat_lahir'=>$row1['tempat_lahir'],
                 'tanggal_lahir'=>$row1['tanggal_lahir'],
