@@ -5,7 +5,7 @@ class Data_santri extends CI_Controller {
 
     function __construct(){
 		parent::__construct();
-	
+        $this->load->helper('url');
 		if($this->session->userdata('level') != "admin"){
 			redirect(base_url("login"));
 		}
@@ -28,7 +28,19 @@ class Data_santri extends CI_Controller {
     
         $where = array('id_calon' => $id);
         $this->m_tables->hapus_data($where,'calon_siswa');
-    
+        $this->session->set_flashdata('success_message', 'Data calon telah berhasil dihapus.');
         redirect('admin/data_santri');
+    }
+
+    public function tambahSantri()
+    {
+        //load model
+        // $this->load->model('m_tables');
+
+        // $data = array(
+        //     'data_siswa' => $this->m_tables->get_siswa()->result()
+        // );
+        //load view
+        $this->load->view('admin/tambahSantri');
     }
 }

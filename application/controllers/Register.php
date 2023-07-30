@@ -64,7 +64,7 @@ class Register extends CI_Controller {
             $this->m_register->simpan_siswa($data);
             // Mengambil data pengguna yang baru terdaftar
             // Menampilkan data pengguna yang berhasil terdaftar
-            redirect('login');
+            redirect('konfirmasi');
         }
     }
 }

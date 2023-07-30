@@ -20,6 +20,7 @@
         <link
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
 
         <!-- Custom styles for this template -->
         <link href="<?php echo base_url() ?>assets/css/sb-admin-2.min.css" rel="stylesheet">
@@ -71,21 +72,6 @@
                     <a class="nav-link" href="<?php echo base_url('admin/data_admin') ?>">
                         <i class="fas fa-fw fa-book"></i>
                         <span>Data Admin</span></a>
-                </li>
-
-                <li class="nav-item">
-                     <a class="nav-link" href="#">
-                        <i class="fas fa-folder"></i>
-                    <span>Pembayaran</span>
-                </a>
-            </li>
-
-                <!-- Nav Item - Tables -->
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url('admin/data_website') ?>">
-                        <i class="fas fa-fw fa-book"></i>
-                        <span>Website</span>
-                    </a>
                 </li>
 
                 <!-- Divider -->
@@ -199,6 +185,8 @@
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary">Data Santri</h6>
+                                <a href="<?php echo base_url('admin/data_santri/tambahSantri') ?>"><button type="button" 
+                                class="btn btn-primary" data-toggle="modal" data-target="#modalTambahAdmin">Tambah Santri</button></a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -226,6 +214,11 @@
                                                 <th>Ayah</th>
                                                 <th>Ibu</th>
                                                 <th>Keterangan</th>
+                                                <th>Skhun</th>
+                                                <th>Pas Foto</th>
+                                                <th>Kartu Keluarga</th>
+                                                <th>Ijazah</th>
+                                                <th>Akte Kelahiran</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -253,9 +246,14 @@
                                                 <td><?php echo $siswa->ukuran_pakaian ?></td>
                                                 <td><?php echo $siswa->jenis_kelamin_id_jenis ?></td>
                                                 <td><?php echo $siswa->pilihan_id_pilihan ?></td>
-                                                <td><?php echo $siswa->ayah_nik ?></td>
-                                                <td><?php echo $siswa->ibu_nik ?></td>
+                                                <td><?php echo $siswa->ayah_nik_ayah ?></td>
+                                                <td><?php echo $siswa->ibu_nik_ibu ?></td>
                                                 <td><?php echo $siswa->keterangan ?></td>
+                                                <td><a href="<?php echo base_url('uploads/SKHUN' . $siswa->skhun); ?>"><?php echo $siswa->skhun ?></a></td>
+                                                <td><img style="width:4cm; height:3cm;" src="<?php echo base_url('uploads/Pas Foto/' . $siswa->pas_foto); ?>"></td>
+                                                <td><a href="<?php echo base_url('uploads/Kartu Keluarga' . $siswa->kartu_keluarga); ?>"><?php echo $siswa->kartu_keluarga ?></a></td>
+                                                <td><a href="<?php echo base_url('uploads/Ijazah Sekolah' . $siswa->ijazah); ?>"><?php echo $siswa->ijazah ?></a></td>
+                                                <td><a href="<?php echo base_url('uploads/Akte Kelahiran' . $siswa->akte_kelahiran); ?>"><?php echo $siswa->akte_kelahiran ?></a></td>
                                                 <td>
                                                     <a href="<?php echo site_url('admin/data_santri/hapus/'.$siswa->id_calon);?>" class="btn btn-sm btn-danger">Delete</a>		
                                                 </td>
@@ -277,7 +275,7 @@
                 <footer class="sticky-footer bg-white">
                     <div class="container my-auto">
                         <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; Your Website 2020</span>
+                            <span>Copyright &copy; Your Website 2023</span>
                         </div>
                     </div>
                 </footer>
@@ -331,6 +329,23 @@
 
         <!-- Page level custom scripts -->
         <script src="<?php echo base_url() ?>assets/js/demo/datatables-demo.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Library SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.js"></script>
+
+   <script>
+    $(document).ready(function() {
+        // Periksa apakah ada pesan 'success_message' dari flashdata
+        <?php if ($this->session->flashdata('success_message')): ?>
+            Swal.fire({
+                title: "Sukses",
+                text: "<?php echo $this->session->flashdata('success_message'); ?>",
+                icon: "success",
+                confirmButtonText: "OK"
+            });
+        <?php endif; ?>
+    });
+    </script>
 
     </body>
 

@@ -13,13 +13,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Data Santri</title>
 
     <!-- Custom fonts for this template-->
     <link href="<?php echo base_url() ?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
 
     <!-- Custom styles for this template-->
     <link href="<?php echo base_url() ?>assets/css/sb-admin-2.min.css" rel="stylesheet">
@@ -35,11 +36,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url('admin/dashboard') ?>">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url('users/dashboard') ?>">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-fa fa-address-card"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">PSB ONLINE</div>
+                <div class="sidebar-brand-text mx-3">PSB ONLINE </div>
             </a>
 
             <!-- Divider -->
@@ -47,51 +48,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('admin/dashboard') ?> ">
+                <a class="nav-link" href="<?php echo base_url('users/dashboard') ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
             <!-- Heading -->
-            <!-- <div class="sidebar-heading">
-                Interface
-            </div> -->
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="<?php echo base_url('admin/data_santri') ?>" >
+            <!-- <li class="nav-item">
+                <a class="nav-link active" href="">
                     <i class="fas fa-book"></i>
                     <span>Data Santri</span>
+                </a> -->
+
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link active" href="<?php echo base_url('users/orangtua') ?>">
+                    <i class="fas fa-book"></i>
+                    <span>Data Orangtua</span>
                 </a>
 
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url('admin/data_admin') ?>">
-                        <i class="fas fa-fw fa-book"></i>
-                        <span>Data Admin</span></a>
-                </li>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#">
-                    <i class="fas fa-folder"></i>
-                    <span>Pembayaran</span>
+            <!-- <li class="nav-item">
+                <a class="nav-link" href=" >
+                    <i class="fas fa-fw fa-file"></i>
+                    <span>Upload Berkas</span>
                 </a>
-
-            </li>
-
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url('admin/data_website') ?>">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Website</span></a>
-            </li>
+            </li> -->
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -119,7 +106,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </button>
 
                     <!-- Topbar Search -->
-                    <form
+                    <!-- <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
@@ -130,7 +117,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form> -->
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -160,26 +147,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </li>
 
                         <!-- Nav Item - Alerts -->
-                        
-
                         <div class="topbar-divider d-none d-sm-block"></div>
-
                         <!-- Nav Item - User Information -->
                         
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $this->session->userdata('id_admin'); ?></span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $this->session->userdata('nama_calon'); ?></span>
                                 <img class="img-profile rounded-circle"
                                     src="<?php echo base_url() ?>assets/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <!-- <a class="dropdown-item" href="">
+                                <a class="dropdown-item" href="<?php echo base_url('users/profile'); ?>">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
-                                </a> -->
+                                </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="<?php echo base_url('login/logout'); ?>" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -193,82 +177,136 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-                <h1 class="h3 mb-2 text-gray-800">Data Website</h1>
+    <div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Lengkapi Data Diri</h1>
+                    </div>
 
                     <!-- Content Row -->
-                    <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Data Website</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Tanggal</th>
-                                                <th>Alur</th>
-                                                <th>Aksi</th>
-                                                <!-- <th>Email</th>
-                                                <th>Username</th>
-                                                <th>Password</th>
-                                                <th>Tempat Lahir</th>
-                                                <th>Tanggal Lahir</th>
-                                                <th>No HP</th>
-                                                <th>Alamat</th>
-                                                <th>Desa</th>
-                                                <th>Kecamatan</th>
-                                                <th>Kabupaten</th>
-                                                <th>Provinsi</th>
-                                                <th>Asal Sekolah</th>
-                                                <th>Ukuran Pakaian</th>
-                                                <th>Jenis Kelamin</th>
-                                                <th>Pilihan</th>
-                                                <th>Ayah</th>
-                                                <th>Ibu</th>
-                                                <th>Keterangan</th>
-                                                <th>Aksi</th> -->
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        <?php 
-                                        $no = 1;
-                                        foreach($data_alur as $alur){
-                                        ?>
-                                            <tr>
-                                                <td><?php echo $no++ ?></td>
-                                                <td><?php echo $alur->judul ?></td>
-                                                <td><?php echo $alur->tanggal ?></td>
-                                                <td><?php echo $alur->alur ?></td>
-                                                <td>
-                                                    <a href="<?php echo site_url('admin/data_website/hapus/'.$alur->id_website);?>" class="btn btn-sm btn-danger">Delete</a>		
-                                                </td>
-                                            </tr>
-                                            <?php } ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <form action="<?php echo base_url() ?>index.php/admin/data_website/simpan" method="POST">
-    <label for="tanggal">Tanggal:</label>
-    <input type="date" id="tanggal" name="tanggal" required><br><br>
+                
+<form action="<?php echo base_url() ?>index.php/users/orangtua/simpan" method="POST">
 
-    <label for="berita">judul</label><br>
-    <textarea id="berita" name="judul" rows="4" cols="50" required></textarea><br><br>
-    
-    <label for="berita">Berita:</label><br>
-    <textarea id="berita" name="alur" rows="4" cols="50" required></textarea><br><br>
-    
-    <input type="submit" value="Submit">
-  </form>
-
-                </div>
-                <!-- /.container-fluid -->
-
+<div class="alert alert-primary text-center">
+        <strong>Data Orang Tua</strong>
+    </div>
+    <h1>A. Data Ayah/Wali</h1>
+    <div class="row">
+        <div class="col-sm">
+            <div class="form-group">
+                <label>Nama Lengkap Ayah:</label>
+                <input type="text" name="nama_ayah" class="form-control" placeholder="Masukkan Nama Lengkap" required >
             </div>
+        </div>
+        <div class="col-sm">
+            <div class="form-group">
+                <label>NIK:</label>
+                <input type="text" name="nik_ayah" class="form-control" placeholder="Masukkan Nomor NIK" required>
+            </div>
+        </div>
+</div>
+<div class="row">
+        <div class="col-sm">
+            <div class="form-group">
+                <label>No HP:</label>
+                <input type="text" name="no_hp_ayah" class="form-control" placeholder="Masukkan Nomer HP" required >
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="text" name="email_ayah" class="form-control" placeholder="Masukkan Email" required>
+            </div>
+        </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-sm">
+                        <div class="form-group">
+                            <label>Pekerjaan</label>
+                             <select class="form-control" name="pekerjaan_ayah_id_pekerjaan" required>
+                                 <option selected>Open this select menu</option>
+                                        <?php 
+                                             foreach($pekerjaan as $pekerja){
+                                                ?>
+                                           <option value="<?php echo $pekerja->id_pekerjaan ?>">
+                                                <?php echo $pekerja->pekerjaan ?>
+                                            </option>
+                                               <?php } ?>
+                                                   </select>
+                                                </div>
+                                            </div>
+                                        </div>
+<div class="row">
+        <div class="col-sm">
+            <div class="form-group">
+                <label>Alamat:</label>
+                <textarea class="form-control" name="alamat_ayah" rows="2" id="alamat" required></textarea>
+            </div>
+        </div>
+    </div>
+    <h1>B. Data Ibu/Wali</h1>
+        <div class="row">
+        <div class="col-sm">
+            <div class="form-group">
+                <label>Nama Lengkap Ibu:</label>
+                <input type="text" name="nama_ibu" class="form-control" placeholder="Masukkan Nama Ibu" required >
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="form-group">
+                <label>NIK:</label>
+                <input type="text" name="nik_ibu" class="form-control" placeholder="Masukkan Nomor NIK" required>
+            </div>
+        </div>
+</div>
+<div class="row">
+        <div class="col-sm">
+            <div class="form-group">
+                <label>No HP:</label>
+                <input type="text" name="no_hp_ibu" class="form-control" placeholder="Masukkan Nomer HP"required>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="text" name="email_ibu" class="form-control" placeholder="Masukkan Email"required>
+            </div>
+        </div>
+</div>
+<div class="row">
+<div class="col-sm">
+                                        <label>Pekerjaan</label>
+                                            <select class="custom-select" name="pekerjaan_ibu_id_pekerjaan" required>
+                                                <option selected>Open this select menu</option>
+                                                    <?php 
+                                                    foreach($pekerjaan as $pekerja){
+                                                    ?>
+                                                <option value="<?php echo $pekerja->id_pekerjaan ?>">
+                                                        <?php echo $pekerja->pekerjaan ?>
+                                                </option>
+                                                    <?php } ?>
+                                            </select>
+                                    </div>
+                                    </div>
+<div class="row">
+        <div class="col-sm">
+            <div class="form-group">
+                <label>Alamat:</label>
+                <textarea class="form-control" name="alamat_ibu" rows="2" id="alamat"required></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-sm">
+            <button type="submit" name="Submit" id="Submit" class="btn btn-primary">Simpan</button>
+            <button type="reset" class="btn btn-secondary">Reset</button>
+        </div>
+    </div>
+</form>
+
+                    <!-- </div> -->
+</div>
+</div>
             <!-- End of Main Content -->
 
             <!-- Footer -->
@@ -312,23 +350,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/vendor/jquery/jquery.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+   <!-- Bootstrap core JavaScript-->
+   <script src="<?php echo base_url() ?>assets/vendor/jquery/jquery.min.js"></script>
+   <script src="<?php echo base_url() ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="<?php echo base_url() ?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+   <!-- Core plugin JavaScript-->
+   <script src="<?php echo base_url() ?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="<?php echo base_url() ?>assets/js/sb-admin-2.min.js"></script>
+   <!-- Custom scripts for all pages-->
+   <script src="<?php echo base_url() ?>assets/js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="<?php echo base_url() ?>assets/vendor/chart.js/Chart.min.js"></script>
+   <!-- Page level plugins -->
+   <script src="<?php echo base_url() ?>assets/vendor/datatables/jquery.dataTables.min.js"></script>
+   <script src="<?php echo base_url() ?>assest/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="<?php echo base_url() ?>assets/js/demo/chart-area-demo.js"></script>
-    <script src="<?php echo base_url() ?>assets/js/demo/chart-pie-demo.js"></script>
+   <!-- Page level custom scripts -->
+   <script src="<?php echo base_url() ?>assets/js/demo/datatables-demo.js"></script>
+
+   <!-- Pastikan Anda juga sudah menyertakan library jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Library SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.js"></script>
+
+   <script>
+    $(document).ready(function() {
+        // Periksa apakah ada pesan 'success_message' dari flashdata
+        <?php if ($this->session->flashdata('success_message')): ?>
+            Swal.fire({
+                title: "Sukses",
+                text: "<?php echo $this->session->flashdata('success_message'); ?>",
+                icon: "success",
+                confirmButtonText: "OK"
+            });
+        <?php endif; ?>
+    });
+    </script>
 
 </body>
 

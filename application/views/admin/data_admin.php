@@ -20,7 +20,9 @@
         <link
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet">
-
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+            <!-- Load CSS dari Bootstrap -->
+        
         <!-- Custom styles for this template -->
         <link href="<?php echo base_url() ?>assets/css/sb-admin-2.min.css" rel="stylesheet">
 
@@ -72,22 +74,7 @@
                         <i class="fas fa-fw fa-book"></i>
                         <span>Data Admin</span></a>
                 </li>
-
-                <li class="nav-item">
-                     <a class="nav-link" href="#">
-                        <i class="fas fa-folder"></i>
-                    <span>Pembayaran</span>
-                </a>
-            </li>
-
-                <!-- Nav Item - Tables -->
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url('admin/data_website') ?>">
-                        <i class="fas fa-fw fa-book"></i>
-                        <span>Website</span>
-                    </a>
-                </li>
-
+                
                 <!-- Divider -->
                 <hr class="sidebar-divider d-none d-md-block">
 
@@ -199,6 +186,7 @@
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary">Data Admin</h6>
+                                
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -225,8 +213,11 @@
                                                 <td><?php echo $admin->email ?></td>
                                                 <td><?php echo $admin->password ?></td>
                                                 <td>
-                                                    <a href="<?php echo site_url('admin/data_admin/hapus/'.$admin->id_admin);?>" class="btn btn-sm btn-danger">Delete</a>		
-                                                </td>
+    <a href="<?php echo site_url('admin/data_admin/hapus/'.$admin->id_admin);?>" class="btn btn-sm btn-danger">Delete</a>
+    <button class="btn btn-primary" data-toggle="modal" data-target="#modalEditAdmin<?php echo $admin->id_admin ?>">Edit
+ </button>
+</td>
+
                                             </tr>
                                             <?php } ?>
                                         </tbody>
@@ -245,7 +236,7 @@
                 <footer class="sticky-footer bg-white">
                     <div class="container my-auto">
                         <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; Your Website 2020</span>
+                            <span>Copyright &copy; Your Website 2023</span>
                         </div>
                     </div>
                 </footer>
@@ -282,6 +273,91 @@
             </div>
         </div>
 
+        <div class="modal fade" id="modalTambahAdmin" tabindex="-1" role="dialog" aria-labelledby="modalTambahAdminLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTambahAdminLabel">Tambah Admin</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Isi form tambah admin di sini -->
+        <form action="<?php echo base_url() ?>index.php/admin/data_admin/simpan" method="POST">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+                                     <label> Nama</label>
+                                        <input type="text" class="form-control form-control-user" name="nama_lengkap"
+                                            placeholder="Nama Lengkap" required>
+                                    </div>
+                                    <label> Username</label>
+                                    <div class="col-sm-6 ">
+                                        <input type="text" class="form-control form-control-user" name="username"
+                                            placeholder="Username" required>
+                                    </div>
+                                    <label> Email</label>
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" name="email"
+                                            placeholder="Email" required>
+                                    </div>
+                                    <label> Password</label>
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="password" class="form-control form-control-user" name="password" placeholder="Password" required>
+                                    </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+        <button type="submit" class="btn btn-primary">Simpan</button>
+      </div>
+      </form>
+    </div>
+                                        </div>
+                                        </div>
+   <!-- Modal Edit Admin -->
+   <?php foreach ($data_admin as $admin) : ?>
+    <div class="modal fade" id="modalEditAdmin<?php echo $admin->id_admin ?>" tabindex="-1" role="dialog" aria-labelledby="modalEditAdminLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalEditAdminLabel">Edit Admin</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Isi form edit admin di sini -->
+                    <form action="<?php echo base_url('admin/data_admin/edit/'.$admin->id_admin); ?>" method="POST">
+                    <label> Nama</label>
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <input type="hidden" name="id_admin" value="<?php echo $admin->id_admin; ?>">
+                            <input type="text" class="form-control form-control-user" name="nama_lengkap" placeholder="Nama Lengkap" value="<?php echo $admin->nama_lengkap; ?>" required>
+                        </div>
+                        <label> Username</label>
+                        <div class="col-sm-6 ">
+                            <input type="text" class="form-control form-control-user" name="username" placeholder="Username" value="<?php echo $admin->username; ?>" required>
+                        </div>
+                        <label> Email</label>
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <input type="text" class="form-control form-control-user" name="email" placeholder="Email" value="<?php echo $admin->email; ?>" required>
+                        </div>
+                        <label> Password</label>
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <input type="password" class="form-control form-control-user" name="password" placeholder="Password" required>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>
+
+
+
         <!-- Bootstrap core JavaScript-->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="<?php echo base_url() ?>assets/vendor/jquery/jquery.min.js"></script>
@@ -299,7 +375,23 @@
 
         <!-- Page level custom scripts -->
         <script src="<?php echo base_url() ?>assets/js/demo/datatables-demo.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Library SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.js"></script>
 
+   <script>
+    $(document).ready(function() {
+        // Periksa apakah ada pesan 'success_message' dari flashdata
+        <?php if ($this->session->flashdata('success_message')): ?>
+            Swal.fire({
+                title: "Sukses",
+                text: "<?php echo $this->session->flashdata('success_message'); ?>",
+                icon: "success",
+                confirmButtonText: "OK"
+            });
+        <?php endif; ?>
+    });
+    </script>
     </body>
 
     </html>

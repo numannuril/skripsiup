@@ -20,6 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
 
     <!-- Custom styles for this template-->
     <link href="<?php echo base_url() ?>assets/css/sb-admin-2.min.css" rel="stylesheet">
@@ -62,25 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </a>
 
             </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('users/upload_berkas') ?>" >
-                    <i class="fas fa-fw fa-file"></i>
-                    <span>Upload Berkas</span>
-                </a>
-            </li>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('users/pembayaran') ?>">
-                    <i class="fas fa-folder"></i>
-                    <span>Pembayaran</span>
-                </a>
-            </li>
-
-
-            <!-- Nav Item - Tables -->
+           
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -174,29 +157,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                         </li>
                     </ul>
-
                 </nav>
-                <!-- End of Topbar -->
-
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-    <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <!-- Page Heading -->
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Lengkapi Data Diri</h1>
                     </div>
 
                     <!-- Content Row -->
                 
-<form action="<?php echo base_url() ?>index.php/users/data_diri/simpan" method="POST">
-
-    <div class="alert alert-primary text-center">
+        <form action="<?php echo base_url() ?>index.php/users/data_diri/simpan" method="POST">
+            <div class="alert alert-primary text-center">
         <strong>Data Diri</strong>
-    </div>
+            </div>
     <div class="row">
         <div class="col-sm">
             <div class="form-group">
                 <label>Nama Lengkap:</label>
-                <input type="hidden" name="id_calon" value="<?php echo $calon->id_calon ?>">
+                <input type="hidden" name="id_calon" value="<?php echo $this->session->userdata('id_calon'); ?>">
                 <input type="text" name="nama_calon" class="form-control" placeholder="Masukkan Nama Lengkap"
                     value="<?php echo $calon->nama_calon ?>" readonly>
             </div>
@@ -220,7 +199,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="form-group">
                 <label>Email:</label>
                 <input type="text" name="email" class="form-control"
-                    placeholder="Masukkan Email">
+                    placeholder="Masukkan Email" required>
             </div>
 </div>
     <div class="row">
@@ -244,13 +223,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <input type="text" name="no_hp" class="form-control" placeholder="Masukkan No Hp"
                     value="<?php echo $calon->no_hp ?>">
             </div>
-        </div>
-        <div class="col-sm">
-            <div class="form-group">
-                <label>Upload Foto</label>
-                <!-- <input type="file" name="foto" class="form-control" placeholder="Upload Foto"> -->
-            </div>
-        </div>
+        </div>            
     </div>
 
     <div class="alert alert-primary text-center">
@@ -261,25 +234,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="col-sm">
             <div class="form-group">
                 <label>Desa:</label>
-                <input type="text" name="desa" class="form-control" placeholder="Masukkan Nama Desa">
+                <input type="text" name="desa" class="form-control" placeholder="Masukkan Nama Desa"required>
             </div>
         </div>
         <div class="col-sm">
             <div class="form-group">
                 <label>Kecamatan:</label>
-                <input type="text" name="kecamatan" class="form-control" placeholder="Masukkan Nama Kecamatan">
+                <input type="text" name="kecamatan" class="form-control" placeholder="Masukkan Nama Kecamatan"required>
             </div>
         </div>
         <div class="col-sm">
             <div class="form-group">
                 <label>Kabupaten:</label>
-                <input type="text" name="kabupaten" class="form-control" placeholder="Masukkan Nama Kabupaten">
+                <input type="text" name="kabupaten" class="form-control" placeholder="Masukkan Nama Kabupaten"required>
             </div>
         </div>
         <div class="col-sm">
             <div class="form-group">
                 <label>Provinsi:</label>
-                <input type="text" name="propinsi" class="form-control" placeholder="Masukkan Nama Provinsi">
+                <input type="text" name="propinsi" class="form-control" placeholder="Masukkan Nama Provinsi"required>
             </div>
         </div>
     </div>
@@ -288,7 +261,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="col-sm">
             <div class="form-group">
                 <label>Alamat:</label>
-                <textarea class="form-control" name="alamat" rows="2" id="alamat"><?php echo $calon->alamat ?></textarea>
+                <textarea class="form-control" name="alamat" rows="2" id="alamat" required><?php echo $calon->alamat ?></textarea>
             </div>
         </div>
     </div>
@@ -327,10 +300,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </div>
     </div>
-
     <div class="row text-center">
         <div class="col-sm">
-            <button type="submit" name="Submit" id="Submit" class="btn btn-primary">Simpan</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
             <button type="reset" class="btn btn-secondary">Reset</button>
         </div>
     </div>
@@ -345,7 +317,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; Your Website 2023</span>
                     </div>
                 </div>
             </footer>
@@ -373,7 +345,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Apakah Kamu Yakin Ingin Keluar ?.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                     <a class="btn btn-primary" href="<?php echo base_url('login/logout'); ?>">Logout</a>
@@ -398,6 +370,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
    <!-- Page level custom scripts -->
    <script src="<?php echo base_url() ?>assets/js/demo/datatables-demo.js"></script>
+   <!-- Pastikan Anda juga sudah menyertakan library jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Library SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // Periksa apakah ada pesan 'success_message' dari flashdata
+        <?php if ($this->session->flashdata('success_message')): ?>
+            Swal.fire({
+                title: "Sukses",
+                text: "<?php echo $this->session->flashdata('success_message'); ?>",
+                icon: "success",
+                confirmButtonText: "OK"
+            });
+        <?php endif; ?>
+    });
+    </script>
+
 
 </body>
 

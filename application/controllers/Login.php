@@ -30,7 +30,7 @@ class Login extends CI_Controller {
             $this->session->set_userdata(array(
                 'id_calon'=>$row1['id_calon'],
                 'username'=>$row1['username'],
-                'email'=>$row1['email'],
+                'email'=>$row1['email'], 
                 'nama_calon'=>$row1['nama_calon'],
                 'nisn'=>$row1['nisn'],
                 'tempat_lahir'=>$row1['tempat_lahir'],
@@ -40,7 +40,7 @@ class Login extends CI_Controller {
                 'jenis_kelamin'=>$row1['jenis_kelamin_id_jenis'],
                 'pilihan'=>$row1['pilihan_id_pilihan'],
 
-
+                
                 'level'=>'users'
             )
         );

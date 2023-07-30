@@ -67,7 +67,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <div class="col-sm-6">
                                         <label>Jenis Kelamin</label>
                                             <select class="custom-select" name="jenis_kelamin_id_jenis" required>
-                                                <option selected>Open this select menu</option>
+                                                <option selected>Jenis Kelamin</option>
                                                     <?php 
                                                     foreach($jenis_kelamin as $jenis_kelamin){
                                                     ?>
@@ -87,7 +87,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <div class="col-sm-6">
                                         <label>Pilihan Sekolah</label>
                                             <select class="custom-select" name="pilihan_id_pilihan" required>
-                                                <option selected>Open this select menu</option>
+                                                <option selected>Pilihan Sekolah</option>
                                                     <?php 
                                                     foreach($pilihan as $pilihan_sekolah){
                                                     ?>
@@ -119,6 +119,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
 
     </div>
+    <div class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
     <!-- Bootstrap core JavaScript-->
     <script src="assets/vendor/jquery/jquery.min.js"></script>

@@ -26,4 +26,12 @@ class M_tables extends CI_Model {
 		$this->db->where($where);
 		$this->db->delete($table);
 	}
+    public function jml_admin(){
+
+        echo $this->db->count_all('admin');
+    }
+    public function jml_siswa(){
+
+        echo $this->db->count_all('calon_siswa');
+    }
 }

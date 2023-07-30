@@ -65,28 +65,125 @@ public function simpan()
     );
 
     $this->m_profile->edit_calon($id_calon, $data);
-    redirect('users/data_diri');
+    $this->session->set_flashdata('success_message', 'Data calon telah berhasil disimpan.');
+    redirect('users/orangtua');
 }
 
-	// function update(){
-	// 	$id = $this->input->post('id');
-	// 	$nama = $this->input->post('nama');
-	// 	$alamat = $this->input->post('alamat');
-	// 	$pekerjaan = $this->input->post('pekerjaan');
-	 
-	// 	$data = array(
-	// 		'nama' => $nama,
-	// 		'alamat' => $alamat,
-	// 		'pekerjaan' => $pekerjaan
-	// 	);
-	 
-	// 	$where = array(
-	// 		'id' => $id
-	// 	);
-	 
-	// 	$this->m_data->update_data($where,$data,'user')
-		
-	
+    public function upload_akte() {
+    $config['upload_path'] = './uploads/Akte Kelahiran/';
+    $config['allowed_types'] = 'pdf';
+    $config['max_size'] = 2048;
+    $config['encrypt_name'] = true;
+
+    $this->load->library('upload', $config);
+
+    if ($this->upload->do_upload('akte_kelahiran')) {
+        $file_data = $this->upload->data();
+        // Lakukan sesuatu dengan file PDF yang diunggah
+        // Contoh: menyimpan informasi file ke database
+        $this->m_register->simpan_siswa($file_data['file_name']);
+        echo 'File PDF berhasil diunggah.';
+    } else {
+        $error = $this->upload->display_errors();
+        echo $error;
+    }
 }
+
+public function upload_ijazah() {
+    $config['upload_path'] = './uploads/Ijazah Sekolah/';
+    $config['allowed_types'] = 'pdf';
+    $config['max_size'] = 2048;
+    $config['encrypt_name'] = true;
+
+    $this->load->library('upload', $config);
+
+    if ($this->upload->do_upload('ijazah_sekolah')) {
+        $file_data = $this->upload->data();
+        // Lakukan sesuatu dengan file PDF yang diunggah
+        // Contoh: menyimpan informasi file ke database
+        $this->m_register->simpan_siswa($file_data['file_name']);
+        echo 'File PDF berhasil diunggah.';
+    } else {
+        $error = $this->upload->display_errors();
+        echo $error;
+    }
+}
+
+public function upload_kk() {
+    $config['upload_path'] = './uploads/Kartu Keluarga/';
+    $config['allowed_types'] = 'pdf';
+    $config['max_size'] = 2048;
+    $config['encrypt_name'] = true;
+
+    $this->load->library('upload', $config);
+
+    if ($this->upload->do_upload('kartu_keluarga')) {
+        $file_data = $this->upload->data();
+        // Lakukan sesuatu dengan file PDF yang diunggah
+        // Contoh: menyimpan informasi file ke database
+        $this->m_register->simpan_siswa($file_data['file_name']);
+        echo 'File PDF berhasil diunggah.';
+    } else {
+        $error = $this->upload->display_errors();
+        echo $error;
+    }
+}
+
+public function upload_skhun() {
+    $config['upload_path'] = './uploads/SKHUN/';
+    $config['allowed_types'] = 'pdf';
+    $config['max_size'] = 2048;
+    $config['encrypt_name'] = true;
+
+    $this->load->library('upload', $config);
+
+    if ($this->upload->do_upload('skhun')) {
+        $file_data = $this->upload->data();
+        // Lakukan sesuatu dengan file PDF yang diunggah
+        // Contoh: menyimpan informasi file ke database
+        $this->m_register->simpan_siswa($file_data['file_name']);
+        echo 'File PDF berhasil diunggah.';
+    } else {
+        $error = $this->upload->display_errors();
+        echo $error;
+    }
+}
+
+public function upload_image() {
+    $config['upload_path'] = './uploads/Pas Foto/';
+    $config['allowed_types'] = 'jpg|jpeg|png';
+    $config['max_size'] = 2048;
+    $config['encrypt_name'] = true;
+
+    $this->load->library('upload', $config);
+
+    if ($this->upload->do_upload('pas_foto')) {
+        $file_data = $this->upload->data();
+        // Lakukan sesuatu dengan file gambar yang diunggah
+        // Contoh: menyimpan informasi file ke database
+        $this->m_register->simpan_siswa($file_data['file_name']);
+        echo 'File gambar berhasil diunggah.';
+    } else {
+        $error = $this->upload->display_errors();
+        echo $error;
+    }
+}
+public function simpan_editProfile () {
+    
+        // Mengambil data dari form
+        $nik_ayah = $this->input->post('nik_ayah');
+        $nik_ibu     = $this->input->post('nika_ibu');
+
+        $data = array(
+            'nama_calon'    => $nama_calon,
+            'nisn'          => $nisn
+        );
+
+        $this->m_profile->editProfile($nik_ayah, $data);
+        redirect('users/profile');
+    }
+}
+
+    	
 	
 

@@ -63,6 +63,13 @@
                     <span>Data Santri</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="<?php echo base_url('users/orangtua') ?>">
+                    <i class="fas fa-book"></i>
+                    <span>Data Orangtua</span>
+                </a>
+
+            </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
@@ -72,17 +79,6 @@
                 </a>
             </li>
             
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pembayaran</span>
-                </a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            
-
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -107,22 +103,6 @@
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
-
-                    <!-- Topbar Search -->
-                    <!-- <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form> -->
-
-
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
@@ -165,21 +145,7 @@
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Profile</h1>
                     </div>
-
-                    <div class="container">
-<!-- <div class="row flex-lg-nowrap">
-  <div class="col-12 col-lg-auto mb-3" style="width: 200px;">
-    <div class="card p-3">
-      <div class="e-navlist e-navlist--active-bg">
-        <ul class="nav">
-          <li class="nav-item"><a class="nav-link px-2 active" href="#"><i class="fa fa-fw fa-bar-chart mr-1"></i><span>Overview</span></a></li>
-          <li class="nav-item"><a class="nav-link px-2" href="https://www.bootdey.com/snippets/view/bs4-crud-users" target="__blank"><i class="fa fa-fw fa-th mr-1"></i><span>CRUD</span></a></li>
-          <li class="nav-item"><a class="nav-link px-2" href="https://www.bootdey.com/snippets/view/bs4-edit-profile-page" target="__blank"><i class="fa fa-fw fa-cog mr-1"></i><span>Settings</span></a></li>
-        </ul>
-      </div>
-    </div>
-  </div> -->
-
+<div class="container">
   <div class="col">
     <div class="row">
       <div class="col mb-3">
@@ -188,9 +154,9 @@
             <div class="e-profile">
               <div class="row">
                 <div class="col-12 col-sm-auto mb-3">
-                  <div class="mx-auto" style="width: 140px;">
+                  <div class="mx-auto" style="width: 175px;">
                     <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">
-                      <span style="color: rgb(166, 168, 170); font: bold 8pt Arial;">140x140</span>
+                      <span style="color: rgb(166, 168, 170); font: bold 8pt Arial;"><img style="width:4cm; height:3cm;" src="<?php echo base_url('uploads/Pas Foto/' . $calon_siswa->pas_foto); ?>"></span>
                     </div>
                   </div>
                 </div>
@@ -198,33 +164,25 @@
                   <div class="text-center text-sm-left mb-2 mb-sm-0">
                     <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap"><?php echo $calon_siswa->nama_calon; ?></h4>
                     <div class="mt-2">
-                      <button class="btn btn-primary" type="button">
-                        <i class="fa fa-fw fa-camera"></i>
-                        <span>Change Photo</span>
-                      </button>
                     </div>
                   </div>
                 </div>
               </div>
-              <ul class="nav nav-tabs">
-                <li class="nav-item"><a href="" class="active nav-link">Settings</a></li>
-              </ul>
               <div class="tab-content pt-3">
                 <div class="tab-pane active">
                   <form class="form" novalidate="">
-                    <div class="row">
-                      <div class="col">
+                   
                         <div class="row">
                           <div class="col">
                             <div class="form-group">
                               <label>Nama Lengkap</label>
-                              <input class="form-control" type="text" name="name"  value="<?php echo $calon_siswa->nama_calon; ?>">
+                              <input class="form-control" type="text" name="name"  value="<?php echo $calon_siswa->nama_calon; ?>"readonly>
                             </div>
                           </div>
                           <div class="col">
                             <div class="form-group">
                               <label>NISN</label>
-                              <input class="form-control" type="text" name="username" value="<?php echo $calon_siswa->nisn; ?>">
+                              <input class="form-control" type="text" name="username" value="<?php echo $calon_siswa->nisn; ?>"readonly>
                             </div>
                           </div>
                         </div>
@@ -232,43 +190,143 @@
                           <div class="col">
                             <div class="form-group">
                               <label>Tempat Lahir</label>
-                              <input class="form-control" type="text"  value="<?php echo $calon_siswa->tempat_lahir; ?>">
+                              <input class="form-control" type="text"  value="<?php echo $calon_siswa->tempat_lahir; ?>"readonly>
                             </div>
                             <div class="form-group">
                               <label>No Handphone</label>
-                              <input class="form-control" type="text"  value="<?php echo $calon_siswa->no_hp; ?>">
+                              <input class="form-control" type="text"  value="<?php echo $calon_siswa->no_hp; ?>"readonly>
                             </div>
                             <div class="form-group">
                               <label>Asal Sekolah</label>
-                              <input class="form-control" type="text"  value="<?php echo $calon_siswa->asal_sekolah; ?>">
+                              <input class="form-control" type="text"  value="<?php echo $calon_siswa->asal_sekolah; ?>"readonly>
+                            </div>
+                            <div class="form-group">
+                              <label>Ukuran Pakaian</label>
+                              <input class="form-control" type="text"  value="<?php echo $calon_siswa->ukuran_pakaian; ?>"readonly>
                             </div>
                           </div>
                         </div>
-                        
+                        <div class="form-group">
+                              <label>Pilihan Sekolah</label>
+                              <input class="form-control" type="text"  value="<?php echo $calon_siswa->pilihan_id_pilihan ?>"readonly>
+                            </div>
                           </div>
+                          <div class="form-group">
+                          <label>Nik Ayah</label>
+                              <input class="form-control" type="text"  value="<?php echo $calon_siswa->ayah_nik_ayah ?>"readonly>
+                            </div>
+                            <div class="form-group">
+                            <label>Nik Ibu</label>
+                              <input class="form-control" type="text"  value="<?php echo $calon_siswa->ibu_nik_ibu ?>"readonly>
+                            </div>
+                        </div>
+                      
+                    </div>
+                          <div class="alert alert-primary text-center">
+                    <strong>Data Orang Tua</strong>
+</div>
+<div>
+    <div class="row">
+        <div class="col-sm">
+            <div class="form-group">
+                <label>Nama Lengkap Ayah:</label>
+                <input class="form-control" type="text" name="nama_ayah" id="nama_ayah" value="">
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="form-group">
+                <label>NIK Ayah:</label>
+                <input type="text" name="nik_ayah" id="nik_ayah" class="form-control" value="" placeholder="Masukkan Nomor NIK">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <div class="form-group">
+                <label>No HP Ayah:</label>
+                <input type="text" name="no_hp_ayah" id="no_hp_ayah" class="form-control" placeholder="Masukkan Nomer HP">
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="form-group">
+                <label>Email Ayah:</label>
+                <input type="text" name="email_ayah" id="email_ayah" class="form-control" placeholder="Masukkan Email">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <div class="form-group">
+                <label>Alamat Ayah:</label>
+                <textarea class="form-control" name="alamat_ayah" id="alamat_ayah" rows="2"></textarea>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="form-group">
+                <label>Pekerjaan Ayah:</label>
+                <input type="text" name="pekerjaan_ayah_id_pekerjaan" id="pekerjaan_ayah" class="form-control"
+                    placeholder="Masukkan Pilihan pekerjaan" value="">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <div class="form-group">
+                <label>Nama Lengkap Ibu:</label>
+                <input type="text" name="nama_ibu" id="nama_ibu" class="form-control" placeholder="Masukkan Nama Ibu">
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="form-group">
+                <label>NIK Ibu:</label>
+                <input type="text" name="nik_ibu" id="nik_ibu" class="form-control" placeholder="Masukkan Nomor NIK">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <div class="form-group">
+                <label>No HP Ibu:</label>
+                <input type="text" name="no_hp_ibu" id="no_hp_ibu" class="form-control" placeholder="Masukkan Nomer HP">
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="form-group">
+                <label>Email Ibu:</label>
+                <input type="text" name="email_ibu" id="email_ibu" class="form-control" placeholder="Masukkan Email">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <div class="form-group">
+                <label>Alamat Ibu:</label>
+                <textarea class="form-control" name="alamat_ibu" id="alamat_ibu" rows="2"></textarea>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="form-group">
+                <label>Pekerjaan Ibu:</label>
+                <input type="text" name="pekerjaan_ibu_id_pekerjaan" id="pekerjaan_ibu" class="form-control"
+                    placeholder="Masukkan Pilihan pekerjaan" value="">
+            </div>
+        </div>
+    </div>
+</div>
                         </div>
                       </div>
                     </div>
-                   
-                    <div class="row">
-                      <div class="col d-flex justify-content-end">
-                        <button class="btn btn-primary" type="submit">Save Changes</button>
-                      </div>
                     </div>
-                  </form>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+                    </div>
+                    </div>
+                    
 
 
 
 
 
-<a href="<?php echo site_url('profile/edit'); ?>">Edit Profil</a>
+
+<a href="<?php echo site_url('users/profile/editprofile'); ?>">Edit Profil</a>
 
 
                 </div>
@@ -281,7 +339,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; Your Website 2023</span>
                     </div>
                 </div>
             </footer>

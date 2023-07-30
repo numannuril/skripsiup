@@ -20,6 +20,7 @@
             <link
                 href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
                 rel="stylesheet">
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
 
             <!-- Custom styles for this template -->
             <link href="<?php echo base_url() ?>assets/css/sb-admin-2.min.css" rel="stylesheet">
@@ -56,13 +57,20 @@
                     <!-- Heading -->
 
                     <!-- Nav Item - Pages Collapse Menu -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url('users/data_diri') ?>">
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="
                             <i class="fas fa-book"></i>
                             <span>Data Santri</span>
                         </a>
 
                     </li>
+                    <li class="nav-item">
+                <a class="nav-link active" href="  
+                    <i class="fas fa-book"></i>
+                    <span>Data Orangtua</span>
+                </a>
+
+            </li> -->
 
                     <!-- Nav Item - Utilities Collapse Menu -->
                     <li class="nav-item">
@@ -71,19 +79,6 @@
                             <span>Upload Berkas</span>
                         </a>
                     </li>
-
-                    <!-- Nav Item - Pages Collapse Menu -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url('users/pembayaran') ?>">
-                            <i class="fas fa-folder"></i>
-                            <span>Pembayaran</span>
-                        </a>
-                    </li>
-
-
-                    <!-- Nav Item - Tables -->
-                  
-
                     <!-- Divider -->
                     <hr class="sidebar-divider d-none d-md-block">
 
@@ -197,18 +192,19 @@
         <strong>Upload Berkas</strong>
     </div>
 
-    <form method="post">
+    <form enctype="multipart/form-data" action="<?php echo base_url() ?>index.php/users/upload_berkas/simpan" method="POST">
         <div class="row">
             <div class="col-sm">
                 <div class="form-group">
                     <label>Kartu Keluarga</label>
-                    <input type="file" name="kartu_keluarga" class="form-control" placeholder="Masukkan Nama Desa">
+                    <input type="hidden" name="id_calon" value="<?php echo $this->session->userdata('id_calon'); ?>">
+                    <input type="file" name="kartu_keluarga" class="form-control" required>
                 </div>
             </div>
             <div class="col-sm">
                 <div class="form-group">
                     <label>SKHUN</label>
-                    <input type="file" name="skhun" class="form-control" placeholder="Masukkan Nama Kecamatan">
+                    <input type="file" name="skhun" class="form-control" placeholder="Masukkan Nama Kecamatan"required>
                 </div>
             </div>
         </div>
@@ -216,27 +212,27 @@
             <div class="col-sm">
                 <div class="form-group">
                     <label>Ijazah Sekolah</label>
-                    <input type="file" name="ijazah_sekolah" class="form-control" placeholder="Masukkan Nama Desa">
+                    <input type="file" name="ijazah" class="form-control" placeholder="Masukkan Nama Desa" required>
                 </div>
             </div>
             <div class="col-sm">
                 <div class="form-group">
                     <label>Akte Kelahiran</label>
-                    <input type="file" name="akte_kelahiran" class="form-control" placeholder="Masukkan Nama Kecamatan">
+                    <input type="file" name="akte_kelahiran" class="form-control" placeholder="Masukkan Nama Kecamatan" required>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm">
+            <!-- <div class="col-sm">
                 <div class="form-group">
                     <label>Daftar Nilai</label>
                     <input type="file" name="daftar_nilai" class="form-control" placeholder="Masukkan Nama Desa">
                 </div>
-            </div>
+            </div> -->
             <div class="col-sm">
                 <div class="form-group">
                     <label>Pas Foto Resmi</label>
-                    <input type="file" name="pas_foto_resmi" class="form-control" placeholder="Masukkan Nama Kecamatan">
+                    <input type="file" name="pas_foto" class="form-control" placeholder="Masukkan Nama Kecamatan" required>
                 </div>
             </div>
         </div>
@@ -257,7 +253,7 @@
                     <footer class="sticky-footer bg-white">
                         <div class="container my-auto">
                             <div class="copyright text-center my-auto">
-                                <span>Copyright &copy; Your Website 2020</span>
+                                <span>Copyright &copy; Your Website 2023</span>
                             </div>
                         </div>
                     </footer>
@@ -310,6 +306,25 @@
 
             <!-- Page level custom scripts -->
             <script src="<?php echo base_url() ?>assets/js/demo/datatables-demo.js"></script>
+
+               <!-- Pastikan Anda juga sudah menyertakan library jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Library SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.js"></script>
+
+   <script>
+    $(document).ready(function() {
+        // Periksa apakah ada pesan 'success_message' dari flashdata
+        <?php if ($this->session->flashdata('success_message')): ?>
+            Swal.fire({
+                title: "Sukses",
+                text: "<?php echo $this->session->flashdata('success_message'); ?>",
+                icon: "success",
+                confirmButtonText: "OK"
+            });
+        <?php endif; ?>
+    });
+    </script>
 
         </body>
 

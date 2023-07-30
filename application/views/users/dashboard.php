@@ -62,6 +62,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </a>
 
             </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="<?php echo base_url('users/orangtua') ?>">
+                    <i class="fas fa-book"></i>
+                    <span>Data Orangtua</span>
+                </a>
+
+            </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
@@ -70,19 +77,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <span>Upload Berkas</span>
                 </a>
             </li>
-
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('users/pembayaran') ?>">
-                    <i class="fas fa-folder"></i>
-                    <span>Pembayaran</span>
-                </a>
-            </li>
-
-
-            <!-- Nav Item - Tables -->
-
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -107,20 +101,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
-
-                    <!-- Topbar Search -->
-                    <!-- <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form> -->
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -177,32 +157,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </ul>
 
                 </nav>
-                <!-- End of Topbar -->
+                
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Landing Page</h1>
-                    </div>
+ 
+                    <div class="col-md-12">
+		<div class="alert alert-success alert-dismissible">
+   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;
+   </button>
+   <h3>Hallo Selamat Datang Kembali, <b><?php echo $this->session->userdata('nama_calon');?></b></h3>
+   </div>
+</div>
 
                   
                         <!-- Earnings (Monthly) Card Example -->
                         </div>
                     </div>
-
-                <!-- </div> -->
-                <!-- /.container-fluid -->
-
-            <!-- </div> -->
-            <!-- End of Main Content -->
-
+ 
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; Your Website 2023</span>
                     </div>
                 </div>
             </footer>

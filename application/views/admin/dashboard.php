@@ -73,23 +73,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <span>Data Admin</span></a>
                 </li>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#">
-                    <i class="fas fa-folder"></i>
-                    <span>Pembayaran</span>
-                </a>
-
-            </li>
-
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('admin/data_website') ?>">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Website</span></a>
-            </li>
-
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -195,79 +178,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <h1 class="h3 mb-2 text-gray-800">Dashboard</h1>
 
                     <!-- Content Row -->
-                    <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Data Santri</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Nama Lengkap</th>
-                                                <th>NISN</th>
-                                                <th>Email</th>
-                                                <th>Username</th>
-                                                <th>Password</th>
-                                                <th>Tempat Lahir</th>
-                                                <th>Tanggal Lahir</th>
-                                                <th>No HP</th>
-                                                <th>Alamat</th>
-                                                <th>Desa</th>
-                                                <th>Kecamatan</th>
-                                                <th>Kabupaten</th>
-                                                <th>Provinsi</th>
-                                                <th>Asal Sekolah</th>
-                                                <th>Ukuran Pakaian</th>
-                                                <th>Jenis Kelamin</th>
-                                                <th>Pilihan</th>
-                                                <th>Ayah</th>
-                                                <th>Ibu</th>
-                                                <th>Keterangan</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        <?php 
-                                        $no = 1;
-                                        foreach($data_siswa as $siswa){
-                                        ?>
-                                            <tr>
-                                                <td><?php echo $no++ ?></td>
-                                                <td><?php echo $siswa->nama_calon ?></td>
-                                                <td><?php echo $siswa->nisn ?></td>
-                                                <td><?php echo $siswa->email ?></td>
-                                                <td><?php echo $siswa->username ?></td>
-                                                <td><?php echo $siswa->password ?></td>
-                                                <td><?php echo $siswa->tempat_lahir ?></td>
-                                                <td><?php echo $siswa->tanggal_lahir ?></td>
-                                                <td><?php echo $siswa->no_hp ?></td>
-                                                <td><?php echo $siswa->alamat ?></td>
-                                                <td><?php echo $siswa->desa ?></td>
-                                                <td><?php echo $siswa->kecamatan ?></td>
-                                                <td><?php echo $siswa->kabupaten ?></td>
-                                                <td><?php echo $siswa->propinsi ?></td>
-                                                <td><?php echo $siswa->asal_sekolah ?></td>
-                                                <td><?php echo $siswa->ukuran_pakaian ?></td>
-                                                <td><?php echo $siswa->jenis_kelamin_id_jenis ?></td>
-                                                <td><?php echo $siswa->pilihan_id_pilihan ?></td>
-                                                <td><?php echo $siswa->ayah_nik ?></td>
-                                                <td><?php echo $siswa->ibu_nik ?></td>
-                                                <td><?php echo $siswa->keterangan ?></td>
-                                            </tr>
-                                            <?php } ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="row">
+   <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Jumlah Santri</div>
+                      <h4>Jumlah Santri</h4>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-user-graduate fa-2x text-gray-300"></i>
+                    </div>
 
+                  </div>
+                  <h1><?php $this->m_tables->jml_siswa(); ?></h1>
+                  <a class="small-box-footer" href="<?php echo base_url('admin/data_santri') ?>">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
-                <!-- /.container-fluid -->
+              </div>
+</div>
+       <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Jumlah Admin</div>
+                      <h4> Admin</h4>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-book fa-2x text-gray-300"></i>
+                    </div>
 
-            </div>
-            <!-- End of Main Content -->
-
+                  </div>
+                  <h1><?php $this->m_tables->jml_admin(); ?></h1>
+                  <a class="small-box-footer" href="<?php echo base_url('admin/data_admin') ?>">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+              </div>
+</div>
+</div>
+</div>
+</div>
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
@@ -275,6 +225,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <span>Copyright &copy; Your Website 2023</span>
                     </div>
                 </div>
+                <div>
             </footer>
             <!-- End of Footer -->
 
